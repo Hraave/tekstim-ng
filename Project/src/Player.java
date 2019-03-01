@@ -1,6 +1,17 @@
-public class Player {
+public class Player extends Character {
 
-    public static String name;
-    public static int health = 100;
-    public static int armor = 0;
+    public int level = 1;
+    public int armor = 0;
+
+    public Player(String name) {
+        this.name = name;
+    }
+
+    public void Die() {
+
+        Main.gameIsRunning = false;
+        System.out.println("You died.");
+
+    }
+
 }
