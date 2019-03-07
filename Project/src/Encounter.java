@@ -15,13 +15,14 @@ public class Encounter {
         Monster monster = new Monster();
 
         System.out.println(monster.name + " attacks!");
-        System.out.println("1. Fight\n2. Run");
+        System.out.println("1. Attack\n2. Run");
 
         int input = Main.scanner.nextInt();
 
         if (input == 1) {
 
-
+            monster.TakeDamage(1);
+            System.out.println(monster.name + " took 1 damage");
 
         } else if (input == 2) {
 
