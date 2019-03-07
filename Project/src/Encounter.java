@@ -4,12 +4,13 @@ import java.util.List;
 public class Encounter {
 
     Player player;
+    int input;
 
     public Encounter(Player player) {
 
         player = player;
 
-        int random = RandomNumberGenerator.RandomInRange(1, 1);
+        int random = RNG.RandomInRange(1, 1);
         switch (random) {
             case 1: MonsterEncounter();
                     break;
@@ -22,7 +23,6 @@ public class Encounter {
     public void MonsterEncounter() {
 
         Monster monster = new Monster();
-        int input;
 
         System.out.println(monster.name + " attacks!");
         System.out.println("Weapon: " + player.equippedWeapon.name + "\n1. Attack\n2. Run\n3. Switch weapon");
@@ -73,7 +73,13 @@ public class Encounter {
 
         Weapon weapon = new Weapon("weapon", 1);
 
-        System.out.println("You found a " + weapon.name + "\nDamage: " + weapon.damage);
+        System.out.println("You find a " + weapon.name + "\nDamage: " + weapon.damage + "\n1. Take it\n2. Leave it");
+        input = Main.scanner.nextInt();
+        if (input == 1) {
+            player.inventory.Add(weapon);
+        } else if (input == 2) {
+
+        }
 
     }
 
