@@ -5,9 +5,9 @@ public class Monster extends Character {
     public int damage;
 
     public Monster() {
-        this.name = GenerateName();
-        this.health = RNG.RandomInRange(1, 100);
-        this.damage = RNG.RandomInRange(1, 100);
+        name = GenerateName();
+        health = RNG.RandomInRange(1, 100);
+        damage = RNG.RandomInRange(1, 100);
     }
 
     private String GenerateName() {

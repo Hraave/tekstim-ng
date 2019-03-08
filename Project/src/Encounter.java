@@ -1,14 +1,6 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Encounter {
 
-    Player player;
-    int input;
-
-    public Encounter(Player player) {
-
-        player = player;
+    public Encounter() {
 
         int random = RNG.RandomInRange(1, 1);
         switch (random) {
@@ -24,48 +16,34 @@ public class Encounter {
 
         Monster monster = new Monster();
 
-        System.out.println(monster.name + " attacks!");
-        System.out.println("Weapon: " + player.equippedWeapon.name + "\n1. Attack\n2. Run\n3. Switch weapon");
+        Choice root = new Choice(monster.name + "attacks!");
+        Choice attack = root.AddChoice("Attack");
+        Choice run = root.AddChoice("Run");
 
-        input = Main.scanner.nextInt();
+        Choice a1 = run.AddChoice("a1");
+        Choice a2 = run.AddChoice("a2");
 
-        if (input == 1) {
+        Choice selection = root.GetSelection();
 
-            monster.TakeDamage(player.equippedWeapon.damage);
-            System.out.println(monster.name + " took " + player.equippedWeapon.damage + " damage");
+        if (selection == run) {
+            Choice selection2 = run.GetSelection();
+            System.out.println(selection2.text);
+        }
 
-        } else if (input == 2) {
+        /*
+        Choice selection = root.GetSelection();
 
-
-
-        } else if (input == 3) {
-
-            List<Item> items = player.inventory.items;
-            List<Weapon> weapons = new ArrayList<>();
-
-            for (int i = 0; i < items.size(); i++) {
-
-                Item item = items.get(i);
-
-                if (item instanceof Weapon) {
-                    weapons.add((Weapon)item);
-                    System.out.println(i + ". " + item.name);
-                }
-
-                if (Main.scanner.hasNextInt()) {
-                    input = Main.scanner.nextInt();
-
-                    player.equippedWeapon = weapons.get(input);
-
-                    System.out.println("Equipped " + weapons.get(input));
-
-                }
-
-                System.out.println();
-
+        if (selection == attack) {
+            if (Player.instance.equippedWeapon != null) {
+            monster.TakeDamage(Player.instance.equippedWeapon.damage);
+            } else {
+                monster.TakeDamage(1);
             }
+            System.out.println(monster.name + " took " + Player.instance.equippedWeapon.damage + " damage");
+        } else if (selection == run) {
 
         }
+        */
 
     }
 
@@ -73,12 +51,17 @@ public class Encounter {
 
         Weapon weapon = new Weapon("weapon", 1);
 
-        System.out.println("You find a " + weapon.name + "\nDamage: " + weapon.damage + "\n1. Take it\n2. Leave it");
-        input = Main.scanner.nextInt();
-        if (input == 1) {
-            player.inventory.Add(weapon);
-        } else if (input == 2) {
+        Choice root = new Choice("You find a " + weapon.name + "\nDamage: " + weapon.damage);
+        Choice take = root.AddChoice("Take it");
+        Choice leave = root.AddChoice("Leave it");
 
+        Choice selection = root.GetSelection();
+
+        if (selection == take) {
+            //player.inventory.Add(weapon);
+            System.out.println("You picked up the " + weapon.name);
+        } else if (selection == leave) {
+            System.out.println("You left it");
         }
 
     }

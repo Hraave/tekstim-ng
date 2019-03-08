@@ -39,7 +39,7 @@ public class Main {
         while (gameIsRunning) {
 
             DisplayStats(player);
-            Encounter encounter = new Encounter(player);
+            Encounter encounter = new Encounter();
 
         }
 
