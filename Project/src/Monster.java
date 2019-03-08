@@ -5,17 +5,13 @@ public class Monster extends Character {
     public int damage;
 
     public Monster() {
-        name = GenerateName();
-        health = RNG.RandomInRange(1, 100);
-        damage = RNG.RandomInRange(1, 100);
+        Setup();
     }
 
-    private String GenerateName() {
-
-        // failist monsters.txt võtta suvaline nimi, nii et igal real on üks nimi?
-
-        return "monstername";
-
+    public void Setup() {
+        name = "monster";
+        health = RNG.RandomInRange(1, 100);
+        damage = RNG.RandomInRange(1, 100);
     }
 
 }

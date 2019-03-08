@@ -12,7 +12,7 @@ public class Encounter {
 
     }
 
-    public void MonsterEncounter() {
+    private void MonsterEncounter() {
 
         Monster monster = new Monster();
 
@@ -47,7 +47,7 @@ public class Encounter {
 
     }
 
-    public void FindingWeapon() {
+    private void FindingWeapon() {
 
         Weapon weapon = new Weapon("weapon", 1);
 
