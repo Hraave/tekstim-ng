@@ -3,6 +3,7 @@ public abstract class Character {
     public String name;
     public int health;
     public int maxHealth;
+    public boolean isAlive = true;
 
     public void GainHealth(int amount) {
         health += amount;
@@ -18,8 +19,6 @@ public abstract class Character {
         }
     }
 
-    public void Die() {
-
-    }
+    public void Die() { isAlive = false; }
 
 }

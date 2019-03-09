@@ -1,13 +1,15 @@
 public class Encounter {
 
-    public Encounter() {
+    public void Init() {
 
-        int random = RNG.RandomInRange(1, 1);
+        int random = RNG.RandomInRange(2, 2);
         switch (random) {
             case 1: MonsterEncounter();
-                    break;
-            case 2: FindingWeapon();
-                    break;
+                break;
+            case 2: DungeonEncounter();
+                break;
+            case 3: FindingWeapon();
+                break;
         }
 
     }
@@ -15,35 +17,16 @@ public class Encounter {
     private void MonsterEncounter() {
 
         Monster monster = new Monster();
+        monster.GenerateStats();
+        CombatManager.Battle(monster);
 
-        Choice root = new Choice(monster.name + "attacks!");
-        Choice attack = root.AddChoice("Attack");
-        Choice run = root.AddChoice("Run");
+    }
 
-        Choice a1 = run.AddChoice("a1");
-        Choice a2 = run.AddChoice("a2");
+    private void DungeonEncounter() {
 
-        Choice selection = root.GetSelection();
-
-        if (selection == run) {
-            Choice selection2 = run.GetSelection();
-            System.out.println(selection2.text);
-        }
-
-        /*
-        Choice selection = root.GetSelection();
-
-        if (selection == attack) {
-            if (Player.instance.equippedWeapon != null) {
-            monster.TakeDamage(Player.instance.equippedWeapon.damage);
-            } else {
-                monster.TakeDamage(1);
-            }
-            System.out.println(monster.name + " took " + Player.instance.equippedWeapon.damage + " damage");
-        } else if (selection == run) {
-
-        }
-        */
+        Dungeon dungeon = new Dungeon();
+        dungeon.Generate();
+        dungeon.Enter();
 
     }
 

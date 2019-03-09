@@ -35,7 +35,7 @@ public class Choice {
         Choice choice = choices.get(input);
         //choice.GetSelection();
 
-        System.out.println("/////" + choice.text);
+        System.out.println("////////////////////////////////////" + choice.text);
 
         return choice;
 

@@ -6,4 +6,17 @@ public class RNG {
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 
+    public static boolean PercentageChance(int percentage) {
+
+        double d = Math.random();
+        double p = percentage / 100.0;
+
+        if (d < p) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }
