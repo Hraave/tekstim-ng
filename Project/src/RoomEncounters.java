@@ -5,7 +5,7 @@ public class RoomEncounters {
         int random = RNG.RandomInRange(1, 1);
         switch (random) {
             case 1: Chest();
-                break;
+                    break;
         }
 
     }

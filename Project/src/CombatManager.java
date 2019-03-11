@@ -33,12 +33,17 @@ public class CombatManager {
 
     private static void AttackMonster(Monster monster) {
 
-        int damage;
-        if (Player.instance.equippedWeapon != null) {
-            damage = Player.instance.equippedWeapon.damage;
-        } else {
-            damage = 1;
+        Weapon weapon = Player.instance.equippedWeapon;
+        int damage = 1;
+        if (weapon != null) {
+            damage = weapon.damage;
+
+            if (RNG.PercentageChance(weapon.critChance)) {
+                System.out.println("Critical hit! Double damage.");
+                damage *= 2;
+            }
         }
+
         monster.TakeDamage(damage);
         System.out.println(monster.name + " took " + damage + " damage");
 
@@ -51,7 +56,14 @@ public class CombatManager {
 
     private static void AttackPlayer(Monster monster) {
 
-        Player.instance.TakeDamage(monster.damage);
+        int damage = monster.damage;
+
+        if (RNG.PercentageChance(2)) {
+            System.out.println("Critical hit! Double damage.");
+            damage *= 2;
+        }
+
+        Player.instance.TakeDamage(damage);
 
         System.out.println(monster.name + " hit you for " + monster.damage + " damage");
 

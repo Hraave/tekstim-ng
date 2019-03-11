@@ -1,10 +1,18 @@
 public class Weapon extends Item {
 
     public int damage;
+    public int critChance;
 
-    public Weapon(String name, int damage) {
+    public Weapon(String name, int damage, int critChance) {
         super(name);
         this.damage = damage;
+        this.critChance = critChance;
+    }
+
+    public void GenerateStats() {
+
+
+
     }
 
 }

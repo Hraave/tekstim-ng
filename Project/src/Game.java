@@ -25,6 +25,10 @@ public class Game {
         while (isRunning) {
 
             DisplayStats(player);
+            System.out.println("1. Follow the road");
+            int input = Main.scanner.nextInt();
+
+            DisplayStats(player);
             Encounter encounter = new Encounter();
             encounter.Init();
 

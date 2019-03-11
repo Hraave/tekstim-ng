@@ -16,6 +16,10 @@ public class Choice {
         return choice;
     }
 
+    public void AddChoice(Choice choice) {
+        choices.add(choice);
+    }
+
     public Choice GetSelection() {
 
         System.out.println(text);
@@ -23,12 +27,6 @@ public class Choice {
         for (int i = 0; i < choices.size(); i++) {
             System.out.println(i + 1 + ". " + choices.get(i).text);
         }
-
-        /*
-        if (canGoBack) {
-            System.out.println(choices.size() + 1 + ". Back");
-        }
-        */
 
         int input = Main.scanner.nextInt() - 1;
 

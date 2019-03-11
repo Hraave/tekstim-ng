@@ -6,4 +6,6 @@ public class Item {
         this.name = name;
     }
 
+    public void Use() { }
+
 }

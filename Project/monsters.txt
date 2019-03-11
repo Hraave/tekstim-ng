@@ -1,0 +1,9 @@
+Zombie
+5
+3
+none
+
+Skeleton
+7
+3
+regeneration

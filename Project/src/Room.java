@@ -6,18 +6,20 @@ public class Room {
     public int x;
     public int y;
 
+    private Dungeon dungeon;
     private List<Monster> monsters = new ArrayList<>();
     private List<Item> items = new ArrayList<>();
 
-    public Room(int x, int y) {
+    public Room(int x, int y, Dungeon dungeon) {
         this.x = x;
         this.y = y;
+        this.dungeon = dungeon;
     }
 
     public void Generate() {
 
         ////////////////// Generate monsters //////////////////
-        int numberOfMonsters = RNG.RandomInRange(0, 5);
+        int numberOfMonsters = RNG.RandomInRange(0, 2);
 
         for (int i = 0; i < numberOfMonsters; i++) {
 
@@ -54,6 +56,10 @@ public class Room {
         //////////////////////////////////////////////////////
 
         RoomEncounters.GetRandom();
+
+        //////////////////////////////////////////////////////
+
+        dungeon.PromptToMove();
 
     }
 

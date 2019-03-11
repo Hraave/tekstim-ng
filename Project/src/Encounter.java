@@ -24,9 +24,17 @@ public class Encounter {
 
     private void DungeonEncounter() {
 
-        Dungeon dungeon = new Dungeon();
-        dungeon.Generate();
-        dungeon.Enter();
+        Choice root = new Choice("You come across a dungeon entrance");
+        Choice enter = root.AddChoice("Enter");
+        Choice leave = root.AddChoice("Leave");
+
+        Choice selection = root.GetSelection();
+
+        if (selection == enter) {
+            Dungeon dungeon = new Dungeon();
+            dungeon.Generate();
+            dungeon.Enter();
+        }
 
     }
 

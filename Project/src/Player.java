@@ -1,8 +1,10 @@
 public class Player extends Character {
 
-    public int xp = 0;
+    public int xp;
     public int level = 1;
-    public int armor = 0;
+
+    public int gold;
+
     public Inventory inventory;
     public Weapon equippedWeapon;
 
