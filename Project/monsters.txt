@@ -7,3 +7,50 @@ Skeleton
 7
 3
 regeneration
+
+Giant Spider
+5
+3
+
+Ice Spider
+7
+3
+
+Bandit
+4
+3
+
+Troll
+7
+4
+
+Dark Mage
+5
+3
+
+Dark Warrior
+6
+3
+
+Dark Ranger
+5
+4
+
+Giant
+7
+4
+
+Pirate
+5
+3
+
+Scorpio
+7
+2
+
+Giant Bloodworm
+3
+2
+
+
+
