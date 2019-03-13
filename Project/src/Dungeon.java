@@ -40,18 +40,6 @@ public class Dungeon {
                 y--;
             }
 
-            /*
-            Iterator<Room> iterator = rooms.iterator();
-            while (iterator.hasNext()) {
-                Room room = iterator.next();
-                if (room.x == x && room.y == y) {
-                    rooms.remove(room);
-                    i--;
-                }
-                iterator.remove();
-            }
-            */
-
             boolean overlappingRooms = false;
             for (Room room : rooms) {
                 if (room.x == x && room.y == y) {

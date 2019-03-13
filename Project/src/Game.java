@@ -9,11 +9,9 @@ public class Game {
         instance = this;
     }
 
-    /*
     public void DisplayStats(Player player) {
-        System.out.println("| " + player.name + "\n| Health: " + player.health + "/" + player.maxHealth + "\n| Armor: " + player.armor + "\n----------------------------");
+        System.out.println("| " + player.name + "\n| Health: " + player.health + "/" + player.maxHealth + "\n----------------------------");
     }
-    */
 
     public void Start() {
 
@@ -26,13 +24,14 @@ public class Game {
         isRunning = true;
         while (isRunning) {
 
-            //DisplayStats(player);
+            DisplayStats(player);
             System.out.println("1. Follow the road");
             int input = Main.scanner.nextInt();
 
-            //DisplayStats(player);
+            DisplayStats(player);
+
             Encounter encounter = new Encounter();
-            encounter.Init();
+            encounter.Init(Encounter.Type.PATH);
 
         }
 

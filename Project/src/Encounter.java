@@ -1,18 +1,38 @@
 public class Encounter {
 
-    public void Init() {
+    public enum Type { PATH, DUNGEON }
 
-        int random = RNG.RandomInRange(2, 2);
-        switch (random) {
-            case 1: MonsterEncounter();
-                break;
-            case 2: DungeonEncounter();
-                break;
-            case 3: FindingWeapon();
-                break;
+    public void Init(Type type) {
+
+        if (type == Type.PATH) {
+
+            int random = RNG.RandomInRange(1, 3);
+            switch (random) {
+                case 1: MonsterEncounter();
+                    break;
+                case 2: DungeonEncounter();
+                    break;
+                case 3: FindingWeapon();
+                    break;
+            }
+
+        } else if (type == Type.DUNGEON) {
+
+            int random = RNG.RandomInRange(1, 3);
+            switch (random) {
+                case 1: Empty();
+                    break;
+                case 2: Chest();
+                    break;
+                case 3: Chest();
+                    break;
+            }
+
         }
 
     }
+
+    ///////////////////////////////////////////////////// PATH ENCOUNTERS /////////////////////////////////////////////////////
 
     private void MonsterEncounter() {
 
@@ -53,6 +73,40 @@ public class Encounter {
             System.out.println("You picked up the " + weapon.name);
         } else if (selection == leave) {
             System.out.println("You left it");
+        }
+
+    }
+
+    ///////////////////////////////////////////////////// DUNGEON ENCOUNTERS /////////////////////////////////////////////////////
+
+    private void Empty() {
+
+        Choice root = new Choice("The room is empty");
+        Choice proceed = root.AddChoice("Proceed");
+
+    }
+
+    private void Chest() {
+
+        Choice root = new Choice("There is a chest in the middle of the room");
+        Choice open = root.AddChoice("Open it");
+        Choice leave = root.AddChoice("Leave it");
+
+        Choice selection = root.GetSelection();
+
+        if (selection == open) {
+
+            if (RNG.PercentageChance(50)) {
+
+                System.out.println("A monster comes out of it!");
+                Monster monster = new Monster();
+                monster.GenerateStats();
+                CombatManager.Battle(monster);
+
+            } else {
+                System.out.println("It's empty");
+            }
+
         }
 
     }
