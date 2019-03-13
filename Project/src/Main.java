@@ -1,12 +1,27 @@
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Application {
 
     public static Scanner scanner = new Scanner(System.in);
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("game.fxml"));
+        primaryStage.setTitle("Text Adventure");
+        primaryStage.setScene(new Scene(root, 1280, 800));
+        primaryStage.show();
+    }
+
     public static void main(String[] args) {
 
-        Menu();
+        launch(args);
+        //Menu();
 
     }
 

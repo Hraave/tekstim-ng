@@ -40,7 +40,7 @@ public class Encounter {
 
     private void FindingWeapon() {
 
-        Weapon weapon = new Weapon("weapon", 1);
+        Weapon weapon = new Weapon("weapon", 1, 30);
 
         Choice root = new Choice("You find a " + weapon.name + "\nDamage: " + weapon.damage);
         Choice take = root.AddChoice("Take it");
