@@ -12,15 +12,15 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Label text="&lt;HEALTH&gt;" />
-                  <Label text="&lt;DAMAGE&gt;" />
-                  <Label text="&lt;GOLD&gt;" />
+                  <Label fx:id="playerHealthLabel" text="&lt;HEALTH&gt;" />
+                  <Label fx:id="playerDamageLabel" text="&lt;DAMAGE&gt;" />
+                  <Label fx:id="playerGoldLabel" text="&lt;GOLD&gt;" />
                   <Button mnemonicParsing="false" text="Inventory" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="500.0" prefWidth="800.0">
                <children>
-                  <Label text="&lt;PROMPT&gt;" />
+                  <Label text="Hi" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
