@@ -25,7 +25,7 @@ public class Room {
         for (int i = 0; i < numberOfMonsters; i++) {
 
             Monster monster = new Monster();
-            monster.GenerateStats();
+            monster.GenerateStats(dungeon.monsterType);
             monsters.add(monster);
 
         }
@@ -50,14 +50,10 @@ public class Room {
 
         ////////////////// Monsters //////////////////
 
-        if (!hasBeenVisited) {
+        System.out.println("There are " + monsters.size() + " monsters in this room");
 
-            System.out.println("There are " + monsters.size() + " monsters in this room");
-
-            for (int i = 0; i < monsters.size(); i++) {
-                CombatManager.Battle(monsters.get(i));
-            }
-
+        for (int i = 0; i < monsters.size(); i++) {
+            CombatManager.Battle(monsters.get(i));
         }
 
         //////////////////////////////////////////////////////

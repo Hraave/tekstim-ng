@@ -30,6 +30,7 @@ public class Player extends Character {
 
     }
 
+    @Override
     public void Die() {
 
         Game.instance.isRunning = false;

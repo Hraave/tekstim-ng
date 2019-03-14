@@ -47,11 +47,6 @@ public class CombatManager {
         monster.TakeDamage(damage);
         System.out.println(monster.name + " took " + damage + " damage");
 
-        if (!monster.isAlive) {
-            System.out.println("Enemy has died");
-            Player.instance.GainXP(monster.health * monster.damage / 100);
-        }
-
     }
 
     private static void AttackPlayer(Monster monster) {

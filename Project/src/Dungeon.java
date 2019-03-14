@@ -6,10 +6,19 @@ public class Dungeon {
 
     private enum Direction { UP, DOWN, RIGHT, LEFT }
 
+    public Monster.Type monsterType;
+
     private List<Room> rooms = new ArrayList<>();
     private Room currentRoom;
 
     public void Generate() {
+
+        Random random;
+
+        ////////////////// Generate dungeon type //////////////////
+
+        random = new Random();
+        monsterType = Monster.Type.values()[random.nextInt(Monster.Type.values().length)];
 
         ////////////////// Generate entrance room //////////////////
 
@@ -27,7 +36,7 @@ public class Dungeon {
             int y = rooms.get(i).y;
 
             // Get random direction //
-            Random random = new Random();
+            random = new Random();
             Direction direction = Direction.values()[random.nextInt(Direction.values().length)];
 
             if (direction == Direction.RIGHT) {
