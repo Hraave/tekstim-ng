@@ -3,6 +3,8 @@ import javafx.scene.control.Label;
 
 public class Controller {
 
+    public static Controller INSTANCE;
+
     @FXML
     Label playerHealthLabel;
     @FXML
@@ -10,4 +12,8 @@ public class Controller {
     @FXML
     Label playerGoldLabel;
 
+    public Controller() {
+        INSTANCE = this;
+    }
 }
+
