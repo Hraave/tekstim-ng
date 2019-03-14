@@ -7,10 +7,14 @@ import java.util.Scanner;
 public class Monster extends Character {
 
     public enum Type {
-        Demon
+        General,
+        Beast,
+        Demon,
+        Pirate
     }
 
     private enum Ability {
+        Lifesteal,
         Regeneration
     }
 
@@ -40,13 +44,8 @@ public class Monster extends Character {
     public void GenerateStats(Type type) {
 
         this.type = type;
-        GetRandomEnemyFromFile();
+        //GetRandomEnemyFromFile();
 
-    }
-
-    @Override
-    public void Die() {
-        Player.instance.GainXP(health * damage / 100);
     }
 
     private void GetRandomEnemyFromFile() {
@@ -72,8 +71,8 @@ public class Monster extends Character {
                 String[] values = line.split(" ");
 
                 name = values[0];
-                health = Integer.valueOf(values[1]);
-                damage = Integer.valueOf(values[2]);
+                damage = Integer.valueOf(values[1]);
+                health = Integer.valueOf(values[2]);
                 type = Type.valueOf(values[3]);
                 if (values.length >= 5) {
                     ability = Ability.valueOf(values[4]);

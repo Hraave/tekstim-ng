@@ -4,6 +4,8 @@ public class CombatManager {
 
         System.out.println(monster.name + " appears!");
 
+        Controller.instance.DisplayMonster(monster);
+
         while (monster.isAlive) {
 
             Choice root = new Choice("Battle: " + monster.name + " |||||| Health: " + monster.health + "/" + monster.maxHealth);
@@ -46,6 +48,11 @@ public class CombatManager {
 
         monster.TakeDamage(damage);
         System.out.println(monster.name + " took " + damage + " damage");
+
+        if (!monster.isAlive) {
+            System.out.println("Monster is dead");
+            Player.instance.GainXP(monster.health * damage / 100);
+        }
 
     }
 

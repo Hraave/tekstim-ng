@@ -1,5 +1,19 @@
 public class Player extends Character {
 
+    private enum Class {
+        Druid,
+        Hunter,
+        Mage,
+        Paladin,
+        Priest,
+        Rogue,
+        Shaman,
+        Warlock,
+        Warrior
+    }
+
+    public Class Class;
+
     public int xp;
     public int level = 1;
 
@@ -14,8 +28,9 @@ public class Player extends Character {
         instance = this;
 
         this.name = name;
-        maxHealth = 100;
+        maxHealth = 30;
         health = maxHealth;
+        Class = Class.Mage;
     }
 
     public void GainXP(int amount) {

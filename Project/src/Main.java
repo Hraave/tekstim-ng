@@ -16,13 +16,12 @@ public class Main extends Application {
         primaryStage.setTitle("Text Adventure");
         primaryStage.setScene(new Scene(root, 1280, 800));
         primaryStage.show();
+
+        //Menu();
     }
 
     public static void main(String[] args) {
-
         launch(args);
-        Menu();
-
     }
 
     private static void Menu() {
