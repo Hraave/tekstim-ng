@@ -1,49 +1,56 @@
 public class CombatManager {
 
-    public static void Battle(Monster monster) {
+    private static Monster monster;
+    private static Room room;
 
-        System.out.println(monster.name + " appears!");
+    public static void StartBattle(Monster m) {
+        monster = m;
+        BattleLoop();
+    }
 
-        Controller.instance.DisplayMonster(monster);
+    public static void StartBattle(Monster m, Room r) {
+        monster = m;
+        room = r;
+        BattleLoop();
+    }
 
-        while (monster.isAlive) {
+    private static void BattleLoop() {
 
-            Choice root = new Choice("Battle: " + monster.name + " |||||| Health: " + monster.health + "/" + monster.maxHealth);
-            Choice attack = root.AddChoice("Attack");
-            Choice run = root.AddChoice("Run");
-            Choice selection = root.GetSelection();
+        Choice root = new Choice("Battle: " + monster.name + "\nHealth: " + monster.health + "/" + monster.maxHealth);
+        Choice attack = root.AddChoice("Attack");
 
-            if (selection == attack) {
+        attack.SetAction(() -> {
 
-                AttackMonster(monster);
-
-            } else if (selection == run) {
-
-                TryEscape(monster);
-
-            }
+            AttackMonster();
 
             if (!monster.isAlive) {
-                break;
+                if (room != null) {
+                    room.hasBeenVisited = true;
+                    room.Enter();
+                } else {
+                    Game.instance.NewEncounter();
+                }
+                return;
             }
 
-            AttackPlayer(monster);
+            AttackPlayer();
+            BattleLoop();
 
-        }
+        });
+
+        root.Display();
 
     }
 
-    private static void AttackMonster(Monster monster) {
+    private static void AttackMonster() {
 
-        Weapon weapon = Player.instance.equippedWeapon;
-        int damage = 1;
-        if (weapon != null) {
-            damage = weapon.damage;
+        Weapon weapon = Player.instance.GetEquippedWeapon();
 
-            if (RNG.PercentageChance(weapon.critChance)) {
-                System.out.println("Critical hit! Double damage.");
-                damage *= 2;
-            }
+        int damage = weapon.damage;
+
+        if (RNG.PercentageChance(weapon.critChance)) {
+            System.out.println("Critical hit! Double damage.");
+            damage *= 2;
         }
 
         monster.TakeDamage(damage);
@@ -51,12 +58,13 @@ public class CombatManager {
 
         if (!monster.isAlive) {
             System.out.println("Monster is dead");
+            //Controller.instance.EndBattle();
             Player.instance.GainXP(monster.health * damage / 100);
         }
 
     }
 
-    private static void AttackPlayer(Monster monster) {
+    private static void AttackPlayer() {
 
         int damage = monster.damage;
 
@@ -71,6 +79,7 @@ public class CombatManager {
 
     }
 
+    /*
     private static void TryEscape(Monster monster) {
 
         if (monster.health * monster.damage > Player.instance.level * Player.instance.health) {
@@ -84,5 +93,6 @@ public class CombatManager {
         }
 
     }
+    */
 
 }

@@ -5,6 +5,7 @@ public class Room {
 
     public int x;
     public int y;
+    public Encounter encounter;
     public boolean hasBeenVisited;
 
     private Dungeon dungeon;
@@ -20,54 +21,42 @@ public class Room {
     public void Generate() {
 
         ////////////////// Generate monsters //////////////////
-        int numberOfMonsters = RNG.RandomInRange(0, 2);
+        int numberOfMonsters = RNG.RandomInRange(1, 2);
 
         for (int i = 0; i < numberOfMonsters; i++) {
-
             Monster monster = new Monster();
             monster.GenerateStats(dungeon.monsterType);
             monsters.add(monster);
 
         }
 
-        ////////////////// Generate items //////////////////
+        ////////////////// Generate random encounter //////////////////
 
-        if (RNG.PercentageChance(10)) {
-
-
-
-        }
+        Encounter encounter = new Encounter();
+        encounter.GenerateRandom(Encounter.Type.DUNGEON);
+        this.encounter = encounter;
 
     }
 
     public void Enter() {
 
-        hasBeenVisited = true;
-
-        ////////////////// Description //////////////////
-
-        System.out.println("You enter the room.");
-
         ////////////////// Monsters //////////////////
-
-        System.out.println("There are " + monsters.size() + " monsters in this room");
-
-        for (int i = 0; i < monsters.size(); i++) {
-            CombatManager.Battle(monsters.get(i));
-        }
-
-        //////////////////////////////////////////////////////
 
         if (!hasBeenVisited) {
 
-            Encounter encounter = new Encounter();
-            encounter.Init(Encounter.Type.DUNGEON);
+            System.out.println("There are " + monsters.size() + " monsters in this room");
+
+            for (int i = 0; i < monsters.size(); i++) {
+                System.out.println("Room startbattle called");
+                CombatManager.StartBattle(monsters.get(i), this);
+            }
 
         }
 
-        //////////////////////////////////////////////////////
-
-        dungeon.PromptToMove();
+        if (hasBeenVisited) {
+            encounter.Call();
+            dungeon.PromptToMove();
+        }
 
     }
 

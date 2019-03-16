@@ -6,6 +6,8 @@ public class Choice {
     public String text;
     public List<Choice> choices = new ArrayList<>();
 
+    private Runnable action;
+
     public Choice(String text) {
         this.text = text;
     }
@@ -20,23 +22,28 @@ public class Choice {
         choices.add(choice);
     }
 
-    public Choice GetSelection() {
+    public void SetAction(Runnable action) {
+        this.action = action;
+    }
 
-        System.out.println(text);
+    public void Display() {
+        Controller.instance.DisplayChoices(this);
+    }
 
-        for (int i = 0; i < choices.size(); i++) {
-            System.out.println(i + 1 + ". " + choices.get(i).text);
+    public void MakeSelection(Choice choice) {
+
+        /*
+        if (choice.text.equals("Follow the road")) {
+            choice.action.run();
+            return;
         }
+        */
 
-        int input = Main.scanner.nextInt() - 1;
-
-        Choice choice = choices.get(input);
-        //choice.GetSelection();
-
-        System.out.println("////////////////////////////////////" + choice.text);
-
-        return choice;
-
+        if (choice.action != null) {
+            choice.action.run();
+        } else {
+            Game.instance.NewEncounter();
+        }
     }
 
 }

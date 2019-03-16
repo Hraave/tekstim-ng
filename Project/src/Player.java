@@ -1,6 +1,6 @@
 public class Player extends Character {
 
-    private enum Class {
+    public enum Class {
         Druid,
         Hunter,
         Mage,
@@ -20,7 +20,14 @@ public class Player extends Character {
     public int gold;
 
     public Inventory inventory;
+
     public Weapon equippedWeapon;
+    public Weapon GetEquippedWeapon() {
+        if (equippedWeapon == null) {
+            return new Weapon("Fists", 1, 1);
+        }
+        return equippedWeapon;
+    }
 
     public static Player instance;
 
@@ -48,7 +55,6 @@ public class Player extends Character {
     @Override
     public void Die() {
 
-        Game.instance.isRunning = false;
         System.out.println("You died.");
 
     }

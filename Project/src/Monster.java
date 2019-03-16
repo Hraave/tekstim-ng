@@ -14,6 +14,7 @@ public class Monster extends Character {
     }
 
     private enum Ability {
+        Charge,
         Lifesteal,
         Regeneration
     }

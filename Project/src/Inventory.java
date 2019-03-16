@@ -27,11 +27,11 @@ public class Inventory {
                 System.out.println(i + ". " + item.name);
             }
 
-            int input = Main.scanner.nextInt();
+            //int input = Main.scanner.nextInt();
 
-            Player.instance.equippedWeapon = weapons.get(input);
+            //Player.instance.equippedWeapon = weapons.get(input);
 
-            System.out.println("Equipped " + weapons.get(input));
+            //System.out.println("Equipped " + weapons.get(input));
 
         }
 

@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Dungeon {
 
-    private enum Direction { UP, DOWN, RIGHT, LEFT }
+    public enum Direction { UP, DOWN, RIGHT, LEFT }
 
     public Monster.Type monsterType;
 
@@ -95,44 +95,47 @@ public class Dungeon {
         Choice forward = new Choice("Go forward");
         Choice back = new Choice("Go back");
 
+        Controller.instance.EnterRoom();
+
         for (Room room : rooms) {
             if (room.x == currentRoom.x + 1 && room.y == currentRoom.y) {
                 // Room is on the right
                 System.out.println("There is a door on the right");
                 root.AddChoice(right);
+                Controller.instance.DisplayDoor(Direction.RIGHT);
             }
             if (room.x == currentRoom.x - 1 && room.y == currentRoom.y) {
                 // Room is on the left
                 System.out.println("There is a door on the left");
                 root.AddChoice(left);
+                Controller.instance.DisplayDoor(Direction.LEFT);
             }
             if (room.x == currentRoom.x && room.y == currentRoom.y + 1) {
                 // Room is above
                 System.out.println("There is a door forward");
                 root.AddChoice(forward);
+                Controller.instance.DisplayDoor(Direction.UP);
             }
             if (room.x == currentRoom.x && room.y == currentRoom.y - 1) {
                 // Room is below
                 System.out.println("There is a door behind you");
                 root.AddChoice(back);
+                Controller.instance.DisplayDoor(Direction.DOWN);
             }
         }
 
-        Choice selection = root.GetSelection();
+        right.SetAction(() -> Move(Direction.RIGHT));
+        left.SetAction(() -> Move(Direction.LEFT));
+        forward.SetAction(() -> Move(Direction.UP));
+        back.SetAction(() -> Move(Direction.DOWN));
 
-        if (selection == right) {
-            Move(Direction.RIGHT);
-        } else if (selection == left) {
-            Move(Direction.LEFT);
-        } else if (selection == forward) {
-            Move(Direction.UP);
-        } else if (selection == back) {
-            Move(Direction.DOWN);
-        }
+        root.Display();
 
     }
 
     private void Move(Direction direction) {
+
+        Controller.instance.ExitRoom();
 
         int x = currentRoom.x;
         int y = currentRoom.y;

@@ -13,9 +13,13 @@ public class Controller {
 
     public static Controller instance;
 
+    //// Choices ////
+    @FXML
+    Label promptLabel;
     @FXML
     HBox choiceBox;
 
+    //// Player ////
     @FXML
     ImageView playerImage;
     @FXML
@@ -25,6 +29,7 @@ public class Controller {
     @FXML
     Label playerGoldLabel;
 
+    //// Monster ////
     @FXML
     Pane monsterPane;
     @FXML
@@ -34,22 +39,98 @@ public class Controller {
     @FXML
     Label monsterHealth;
 
+    //// Dungeon ////
+    @FXML
+    Pane dungeonPane;
+    @FXML
+    ImageView dungeonRoom;
+    @FXML
+    ImageView doorForward;
+    @FXML
+    ImageView doorLeft;
+    @FXML
+    ImageView doorRight;
+
     public void initialize() {
         instance = this;
 
+        Game game = new Game();
+        game.Start();
+
         DisplayStats();
 
-        DisplayMonster(new Monster("Voidwalker", 1, 3));
+        //StartBattle(new Monster("Voidwalker", 1, 3));
+
+        SetImage(dungeonRoom, "sprites/dungeon/room.png");
+        SetImage(doorForward, "sprites/dungeon/door_forward.png");
+        SetImage(doorLeft, "sprites/dungeon/door_forward.png");
+        SetImage(doorRight, "sprites/dungeon/door_forward.png");
+
+        dungeonPane.setVisible(false);
+        doorRight.setVisible(false);
+        doorLeft.setVisible(false);
+        doorForward.setVisible(false);
 
     }
 
     public void DisplayStats() {
 
-        SetImage(playerImage, "sprites/heroes/mage.png");
+        String playerClass = Player.instance.Class.toString();
+        SetImage(playerImage, "sprites/heroes/" + playerClass.toLowerCase() + ".png");
+
+
+
 
     }
 
-    public void DisplayMonster(Monster monster) {
+    public void DisplayChoices(Choice root) {
+
+        choiceBox.getChildren().clear();
+
+        promptLabel.setText(root.text);
+        for (Choice choice : root.choices) {
+
+            Button choiceButton = new Button(choice.text);
+            choiceButton.setOnAction(action -> root.MakeSelection(choice));
+            choiceBox.getChildren().add(choiceButton);
+
+        }
+
+    }
+
+    ///////////////////////////////////////////////////// Dungeon /////////////////////////////////////////////////////
+
+    public void EnterRoom() {
+
+        dungeonPane.setVisible(true);
+
+    }
+
+    public void DisplayDoor(Dungeon.Direction direction) {
+
+        if (direction == Dungeon.Direction.RIGHT) {
+            doorRight.setVisible(true);
+        } else if (direction == Dungeon.Direction.LEFT) {
+            doorLeft.setVisible(true);
+        } else if (direction == Dungeon.Direction.UP) {
+            doorForward.setVisible(true);
+        }
+
+    }
+
+    public void ExitRoom() {
+
+        dungeonPane.setVisible(false);
+
+        doorRight.setVisible(false);
+        doorLeft.setVisible(false);
+        doorForward.setVisible(false);
+
+    }
+
+    ////////////////////////////////////////////////// Monster Battle //////////////////////////////////////////////////
+
+    public void StartBattle(Monster monster) {
 
         monsterPane.setVisible(true);
 
@@ -59,18 +140,13 @@ public class Controller {
 
     }
 
-    public void DisplayChoices(Choice root) {
+    public void EndBattle() {
 
-        choiceBox.getChildren().removeAll();
-
-        for (Choice choice : root.choices) {
-
-            Button choiceButton = new Button(choice.text);
-            choiceBox.getChildren().add(choiceButton);
-
-        }
+        monsterPane.setVisible(false);
 
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void SetImage(ImageView imageView, String filePath) {
         try {

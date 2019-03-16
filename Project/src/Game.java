@@ -1,39 +1,32 @@
 public class Game {
 
-    public Map map;
-    public boolean isRunning;
-
     public static Game instance;
 
     public Game() {
         instance = this;
     }
 
-    public void DisplayStats(Player player) {
-        System.out.println("| " + player.name + "\n| Health: " + player.health + "/" + player.maxHealth + "\n----------------------------");
-    }
-
     public void Start() {
 
-        System.out.println("Enter your name:");
-        Player player = new Player(Main.scanner.nextLine());
-        System.out.println("Welcome, " + player.name + ".");
+        Player player = new Player("player");
 
-        map = new Map();
+        NewEncounter();
 
-        isRunning = true;
-        while (isRunning) {
+    }
 
-            DisplayStats(player);
-            System.out.println("1. Follow the road");
-            int input = Main.scanner.nextInt();
+    public void NewEncounter() {
 
-            DisplayStats(player);
+        Choice root = new Choice("");
+        Choice proceed = new Choice("Follow the road");
+        root.AddChoice(proceed);
 
+        proceed.SetAction(() -> {
             Encounter encounter = new Encounter();
-            encounter.Init(Encounter.Type.PATH);
+            encounter.GenerateRandom(Encounter.Type.PATH);
+            encounter.Call();
+        });
 
-        }
+        root.Display();
 
     }
 
