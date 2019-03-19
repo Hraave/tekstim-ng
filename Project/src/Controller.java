@@ -78,7 +78,7 @@ public class Controller {
         String playerClass = Player.instance.Class.toString();
         SetImage(playerImage, "sprites/heroes/" + playerClass.toLowerCase() + ".png");
         playerHealthLabel.setText(Player.instance.health);
-        playerDamageLabel.setText(Player.instance.equippedWeapon);
+        playerDamageLabel.setText(Player.instance.GetEquippedWeapon.damage();
         playerGoldLabel.setText(Player.instance.gold);
 
     }
