@@ -26,19 +26,16 @@ public class Choice {
         this.action = action;
     }
 
+    public void SetImage(String path) {
+        Controller.instance.DisplayImage(path);
+    }
+
     public void Display() {
         Controller.instance.DisplayChoices(this);
     }
 
     public void MakeSelection(Choice choice) {
-
-        /*
-        if (choice.text.equals("Follow the road")) {
-            choice.action.run();
-            return;
-        }
-        */
-
+        Controller.instance.HideImage();
         if (choice.action != null) {
             choice.action.run();
         } else {

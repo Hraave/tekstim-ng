@@ -1,7 +1,6 @@
 public class Monster extends Character {
 
     public enum Ability {
-        Charge,
         Deathrattle,
         Lifesteal,
         Regeneration

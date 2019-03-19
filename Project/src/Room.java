@@ -9,9 +9,10 @@ public class Room {
     public boolean hasBeenVisited;
     public boolean isBossRoom;
 
-    private Dungeon dungeon;
     private List<Monster> monsters = new ArrayList<>();
     private List<Item> items = new ArrayList<>();
+
+    protected Dungeon dungeon;
 
     public Room(int x, int y, Dungeon dungeon) {
         this.x = x;
@@ -22,6 +23,15 @@ public class Room {
     public void Generate() {
 
         ////////////////// Generate monsters //////////////////
+
+        //Icecrown citadel first room encounter
+        if (dungeon.type == Dungeon.Type.Icecrown_Citadel && x == 0 && y == 0) {
+            Monster monster = MonsterFactory.GetMonster("Lord Marrowgar");
+            monsters.add(monster);
+            return;
+        }
+        ///////////////////////////////////////
+
         int numberOfMonsters = RNG.RandomInRange(1, 2);
 
         for (int i = 0; i < numberOfMonsters; i++) {

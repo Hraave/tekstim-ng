@@ -10,26 +10,10 @@ public class Dungeon {
         Cave,
         Tomb,
         Temple,
-        Icecrown
+        Icecrown_Citadel
     }
 
     public Type type;
-    public String TypeToString() {
-        if (type == Type.House) {
-            return "a house";
-        } else if (type == Type.Dungeon) {
-            return "a dungeon";
-        } else if (type == Type.Cave) {
-            return "a cave";
-        } else if (type == Type.Tomb) {
-            return "a tomb";
-        } else if (type == Type.Temple) {
-            return "a temple";
-        } else if (type == Type.Icecrown) {
-            return "the Icecrown Citadel";
-        }
-        return null;
-    }
 
     public enum Direction { UP, DOWN, RIGHT, LEFT }
 
@@ -42,8 +26,8 @@ public class Dungeon {
 
         type = Type.Dungeon;
 
-        if (RNG.PercentageChance(50)) {
-            type = Type.Icecrown;
+        if (Encounter.currentBiome == Encounter.Biome.Snow && RNG.PercentageChance(50)) {
+            type = Type.Icecrown_Citadel;
         }
 
         ////////////////// Generate entrance room //////////////////

@@ -63,6 +63,8 @@ public class Controller {
         Game game = new Game();
         game.Start();
 
+        String playerClass = Player.instance.playerClass.toString();
+        SetImage(playerImage, "heroes/" + playerClass.toLowerCase() + ".png");
         DisplayStats();
 
         imagePane.managedProperty().bind(imagePane.visibleProperty());
@@ -75,34 +77,19 @@ public class Controller {
         doorLeft.setVisible(false);
         doorForward.setVisible(false);
 
-
-
-
-
-        /*
-        try {
-
-            FileInputStream inputStream = new FileInputStream("src/resources/sprites/dungeon/room.png");
-            Image image = new Image(inputStream);
-            BackgroundImage myBI = new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-            screenPane.setBackground(new Background(myBI));
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        */
-
     }
 
     public void DisplayStats() {
-
-        String playerClass = Player.instance.playerClass.toString();
-        SetImage(playerImage, "heroes/" + playerClass.toLowerCase() + ".png");
 
         playerHealthLabel.setText(String.valueOf(Player.instance.health));
         playerDamageLabel.setText(String.valueOf(Player.instance.GetEquippedWeapon().damage));
         playerGoldLabel.setText(String.valueOf(Player.instance.gold));
 
+    }
+
+    public void PlayerDeath() {
+        screenPane.getChildren().clear();
+        SetBackground("death.png");
     }
 
     public void DisplayChoices(Choice root) {
@@ -129,6 +116,10 @@ public class Controller {
         imagePane.setVisible(true);
         SetImage(image, path);
 
+    }
+
+    public void HideImage() {
+        imagePane.setVisible(false);
     }
 
     ///////////////////////////////////////////////////// Dungeon /////////////////////////////////////////////////////
@@ -200,6 +191,20 @@ public class Controller {
 
     }
 
+    //////// Animations ////////
+
+    public void MonsterAttackAnimation() {
+
+    }
+
+    public void MonsterRegenAnimation() {
+
+    }
+
+    public void DeathrattleAnimation() {
+
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void SetImage(ImageView imageView, String filePath) {
@@ -211,6 +216,20 @@ public class Controller {
 
         } catch (FileNotFoundException e) {
             System.out.println("An image is missing");
+            e.printStackTrace();
+        }
+    }
+
+    private void SetBackground(String filePath) {
+        try {
+
+            FileInputStream inputStream = new FileInputStream("src/resources/sprites/" + filePath);
+            Image image = new Image(inputStream);
+            BackgroundImage background = new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+            screenPane.setBackground(new Background(background));
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Background image is missing");
             e.printStackTrace();
         }
     }

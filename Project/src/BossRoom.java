@@ -9,7 +9,14 @@ public class BossRoom extends Room {
 
     @Override
     public void Generate() {
-        boss = MonsterFactory.GetRandomBoss();
+
+        if (dungeon.type == Dungeon.Type.Icecrown_Citadel) {
+            boss = MonsterFactory.GetMonster("The Lich King");
+        } else {
+
+            boss = MonsterFactory.GetRandomBoss();
+
+        }
     }
 
     @Override

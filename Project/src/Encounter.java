@@ -1,8 +1,18 @@
+import java.util.Random;
+
 public class Encounter {
 
     public enum Type { PATH, DUNGEON }
 
-    private static final int pathEncounterAmount = 3;
+    public enum Biome {
+        Grass,
+        Forest,
+        Snow
+    }
+
+    public static Biome currentBiome = Biome.Grass;
+
+    private static final int pathEncounterAmount = 4;
     private static final int dungeonEncounterAmount = 1;
 
     private Type type;
@@ -32,6 +42,8 @@ public class Encounter {
                     break;
                 case 3: FindingWeapon();
                     break;
+                case 4: DiscoverBiome();
+                    break;
             }
 
         } else if (type == Type.DUNGEON) {
@@ -59,7 +71,7 @@ public class Encounter {
         Dungeon dungeon = new Dungeon();
         dungeon.Generate();
 
-        Choice root = new Choice("You come across " + dungeon.TypeToString());
+        Choice root = new Choice("You come across " + dungeon.type.toString().replaceAll("_", " "));
         Choice enter = root.AddChoice("Enter");
         Choice leave = root.AddChoice("Leave");
 
@@ -68,13 +80,14 @@ public class Encounter {
             dungeon.Enter();
         });
 
+        root.SetImage("dungeon/" + dungeon.type.toString().toLowerCase() + ".png");
         root.Display();
 
     }
 
     private void FindingWeapon() {
 
-        Weapon weapon = new Weapon("weapon", 1, 30);
+        Weapon weapon = new Weapon("Silver Sword", 3, 30);
 
         Choice root = new Choice("You find a " + weapon.name + "\nDamage: " + weapon.damage);
         Choice take = root.AddChoice("Take");
@@ -86,18 +99,39 @@ public class Encounter {
             Game.instance.NewEncounter();
         });
 
+        root.SetImage("weapons/silver_sword.png");
+        root.Display();
+
+    }
+
+    private void DiscoverBiome() {
+
+        Random random = new Random();
+        Biome biome = Biome.values()[random.nextInt(Biome.values().length)];
+
+        String biomeText = "";
+        if (biome == Biome.Grass) {
+            biomeText = "the grasslands";
+        } else if (biome == Biome.Forest) {
+            biomeText = "the dark forest";
+        } else if (biome == Biome.Snow) {
+            biomeText = "the snow area";
+        }
+
+        Choice root = new Choice("You find your way out of " + biomeText);
+        Choice enter = root.AddChoice("Enter " + biomeText);
+        Choice leave = root.AddChoice("Return");
+
+        enter.SetAction(() -> {
+            currentBiome = biome;
+        });
+
+        root.SetImage(biome.toString() + ".png");
         root.Display();
 
     }
 
     ///////////////////////////////////////////////////// DUNGEON ENCOUNTERS /////////////////////////////////////////////////////
-
-    private void Empty() {
-
-        Choice root = new Choice("The room is empty");
-        Choice proceed = root.AddChoice("Proceed");
-
-    }
 
     private void Chest() {
 

@@ -51,10 +51,20 @@ public class Player extends Character {
     }
 
     @Override
+    public void GainHealth(int amount) {
+        super.GainHealth(amount);
+        Controller.instance.DisplayStats();
+    }
+
+    @Override
+    public void TakeDamage(int amount) {
+        super.TakeDamage(amount);
+        Controller.instance.DisplayStats();
+    }
+
+    @Override
     public void Die() {
-
-        System.out.println("You died.");
-
+        Controller.instance.PlayerDeath();
     }
 
 }

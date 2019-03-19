@@ -27,14 +27,6 @@ public class CombatManager {
 
             if (!monster.isAlive) {
                 MonsterDeath();
-                /*
-                if (room != null) {
-                    room.hasBeenVisited = true;
-                    room.Enter();
-                } else {
-                    Game.instance.NewEncounter();
-                }
-                */
                 return;
             }
 
@@ -73,6 +65,13 @@ public class CombatManager {
 
     private static void AttackPlayer() {
 
+        if (monster.ability == Monster.Ability.Regeneration) {
+            monster.GainHealth(monster.maxHealth / 2);
+            Controller.instance.MonsterRegenAnimation();
+        }
+
+        Controller.instance.MonsterAttackAnimation();
+
         int damage = monster.damage;
 
         if (RNG.PercentageChance(2)) {
@@ -100,6 +99,7 @@ public class CombatManager {
                 newMonster = MonsterFactory.GetMonster("Woodchip");
             }
             CombatManager.StartBattle(newMonster);
+            Controller.instance.DeathrattleAnimation();
         } else if (room != null) {
             room.hasBeenVisited = true;
             room.Enter();
