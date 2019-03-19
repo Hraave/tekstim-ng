@@ -5,6 +5,11 @@ public abstract class Character {
     public int maxHealth;
     public boolean isAlive = true;
 
+    public Character(String name, int health) {
+        this.name = name;
+        this.health = this.maxHealth = health;
+    }
+
     public void GainHealth(int amount) {
         health += amount;
         if (health > maxHealth) {

@@ -4,21 +4,47 @@ import java.util.Random;
 
 public class Dungeon {
 
-    public enum Direction { UP, DOWN, RIGHT, LEFT }
+    public enum Type {
+        House,
+        Dungeon,
+        Cave,
+        Tomb,
+        Temple,
+        Icecrown
+    }
 
-    public Monster.Type monsterType;
+    public Type type;
+    public String TypeToString() {
+        if (type == Type.House) {
+            return "a house";
+        } else if (type == Type.Dungeon) {
+            return "a dungeon";
+        } else if (type == Type.Cave) {
+            return "a cave";
+        } else if (type == Type.Tomb) {
+            return "a tomb";
+        } else if (type == Type.Temple) {
+            return "a temple";
+        } else if (type == Type.Icecrown) {
+            return "the Icecrown Citadel";
+        }
+        return null;
+    }
+
+    public enum Direction { UP, DOWN, RIGHT, LEFT }
 
     private List<Room> rooms = new ArrayList<>();
     private Room currentRoom;
 
     public void Generate() {
 
-        Random random;
-
         ////////////////// Generate dungeon type //////////////////
 
-        random = new Random();
-        monsterType = Monster.Type.values()[random.nextInt(Monster.Type.values().length)];
+        type = Type.Dungeon;
+
+        if (RNG.PercentageChance(50)) {
+            type = Type.Icecrown;
+        }
 
         ////////////////// Generate entrance room //////////////////
 
@@ -36,7 +62,7 @@ public class Dungeon {
             int y = rooms.get(i).y;
 
             // Get random direction //
-            random = new Random();
+            Random random = new Random();
             Direction direction = Direction.values()[random.nextInt(Direction.values().length)];
 
             if (direction == Direction.RIGHT) {
@@ -62,6 +88,11 @@ public class Dungeon {
             }
 
             Room room = new Room(x, y, this);
+
+            if (i == numberOfRooms - 1) {
+                room = new BossRoom(x, y, this);
+            }
+
             room.Generate();
             rooms.add(room);
 
@@ -100,27 +131,23 @@ public class Dungeon {
         for (Room room : rooms) {
             if (room.x == currentRoom.x + 1 && room.y == currentRoom.y) {
                 // Room is on the right
-                System.out.println("There is a door on the right");
                 root.AddChoice(right);
-                Controller.instance.DisplayDoor(Direction.RIGHT);
+                Controller.instance.DisplayDoor(Direction.RIGHT, room.isBossRoom);
             }
             if (room.x == currentRoom.x - 1 && room.y == currentRoom.y) {
                 // Room is on the left
-                System.out.println("There is a door on the left");
                 root.AddChoice(left);
-                Controller.instance.DisplayDoor(Direction.LEFT);
+                Controller.instance.DisplayDoor(Direction.LEFT, room.isBossRoom);
             }
             if (room.x == currentRoom.x && room.y == currentRoom.y + 1) {
                 // Room is above
-                System.out.println("There is a door forward");
                 root.AddChoice(forward);
-                Controller.instance.DisplayDoor(Direction.UP);
+                Controller.instance.DisplayDoor(Direction.UP, room.isBossRoom);
             }
             if (room.x == currentRoom.x && room.y == currentRoom.y - 1) {
                 // Room is below
-                System.out.println("There is a door behind you");
                 root.AddChoice(back);
-                Controller.instance.DisplayDoor(Direction.DOWN);
+                Controller.instance.DisplayDoor(Direction.DOWN, room.isBossRoom);
             }
         }
 

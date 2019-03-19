@@ -49,22 +49,22 @@ public class Encounter {
 
     private void MonsterEncounter() {
 
-        Monster monster = new Monster();
-        monster.GenerateStats();
+        Monster monster = MonsterFactory.GetRandomMonster();
         CombatManager.StartBattle(monster);
 
     }
 
     private void DungeonEncounter() {
 
-        Choice root = new Choice("You come across a dungeon entrance");
+        Dungeon dungeon = new Dungeon();
+        dungeon.Generate();
+
+        Choice root = new Choice("You come across " + dungeon.TypeToString());
         Choice enter = root.AddChoice("Enter");
         Choice leave = root.AddChoice("Leave");
 
         enter.SetAction(() -> {
             System.out.println("Entered dungeon");
-            Dungeon dungeon = new Dungeon();
-            dungeon.Generate();
             dungeon.Enter();
         });
 

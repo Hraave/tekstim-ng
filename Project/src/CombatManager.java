@@ -5,12 +5,14 @@ public class CombatManager {
 
     public static void StartBattle(Monster m) {
         monster = m;
+        Controller.instance.StartBattle(m);
         BattleLoop();
     }
 
     public static void StartBattle(Monster m, Room r) {
         monster = m;
         room = r;
+        Controller.instance.StartBattle(m);
         BattleLoop();
     }
 
@@ -24,12 +26,15 @@ public class CombatManager {
             AttackMonster();
 
             if (!monster.isAlive) {
+                MonsterDeath();
+                /*
                 if (room != null) {
                     room.hasBeenVisited = true;
                     room.Enter();
                 } else {
                     Game.instance.NewEncounter();
                 }
+                */
                 return;
             }
 
@@ -56,9 +61,11 @@ public class CombatManager {
         monster.TakeDamage(damage);
         System.out.println(monster.name + " took " + damage + " damage");
 
+        Controller.instance.UpdateMonsterStats(monster);
+
         if (!monster.isAlive) {
             System.out.println("Monster is dead");
-            //Controller.instance.EndBattle();
+            Controller.instance.EndBattle();
             Player.instance.GainXP(monster.health * damage / 100);
         }
 
@@ -75,7 +82,30 @@ public class CombatManager {
 
         Player.instance.TakeDamage(damage);
 
+        if (monster.ability == Monster.Ability.Lifesteal) {
+            monster.GainHealth(damage);
+        }
+
         System.out.println(monster.name + " hit you for " + monster.damage + " damage");
+
+    }
+
+    private static void MonsterDeath() {
+
+        if (monster.ability == Monster.Ability.Deathrattle) {
+            Monster newMonster = new Monster(" ", 1, 1, null);
+            if (monster.name.equals("Splitting Festeroot")) {
+                newMonster = MonsterFactory.GetMonster("Splitting Sapling");
+            } else if (monster.name.equals("Splitting Sapling")) {
+                newMonster = MonsterFactory.GetMonster("Woodchip");
+            }
+            CombatManager.StartBattle(newMonster);
+        } else if (room != null) {
+            room.hasBeenVisited = true;
+            room.Enter();
+        } else {
+            Game.instance.NewEncounter();
+        }
 
     }
 

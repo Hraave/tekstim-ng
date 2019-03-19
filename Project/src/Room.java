@@ -7,6 +7,7 @@ public class Room {
     public int y;
     public Encounter encounter;
     public boolean hasBeenVisited;
+    public boolean isBossRoom;
 
     private Dungeon dungeon;
     private List<Monster> monsters = new ArrayList<>();
@@ -24,8 +25,8 @@ public class Room {
         int numberOfMonsters = RNG.RandomInRange(1, 2);
 
         for (int i = 0; i < numberOfMonsters; i++) {
-            Monster monster = new Monster();
-            monster.GenerateStats(dungeon.monsterType);
+
+            Monster monster = MonsterFactory.GetRandomMonster();
             monsters.add(monster);
 
         }

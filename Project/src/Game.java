@@ -8,8 +8,7 @@ public class Game {
 
     public void Start() {
 
-        Player player = new Player("player");
-
+        MonsterFactory.Setup();
         NewEncounter();
 
     }

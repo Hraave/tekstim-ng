@@ -12,7 +12,7 @@ public class Player extends Character {
         Warrior
     }
 
-    public Class Class;
+    public Class playerClass;
 
     public int xp;
     public int level = 1;
@@ -31,13 +31,11 @@ public class Player extends Character {
 
     public static Player instance;
 
-    public Player(String name) {
-        instance = this;
+    public Player(String name, int health, Class playerClass) {
+        super(name, health);
+        this.playerClass = playerClass;
 
-        this.name = name;
-        maxHealth = 30;
-        health = maxHealth;
-        Class = Class.Mage;
+        instance = this;
     }
 
     public void GainXP(int amount) {
