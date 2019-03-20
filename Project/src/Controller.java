@@ -1,9 +1,12 @@
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.util.Duration;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -100,7 +103,11 @@ public class Controller {
         for (Choice choice : root.choices) {
 
             Button choiceButton = new Button(choice.text);
-            choiceButton.setOnAction(action -> root.MakeSelection(choice));
+            //choiceButton.setOnAction(action -> root.MakeSelection(choice));
+            choiceButton.setOnAction(action -> {
+                Sound.PlaySound("click");
+                root.MakeSelection(choice);
+            });
             choiceBox.getChildren().add(choiceButton);
 
         }
@@ -176,6 +183,8 @@ public class Controller {
         monsterName.setText(monster.name);
         UpdateMonsterStats(monster);
 
+        MonsterAppearAnimation();
+
     }
 
     public void UpdateMonsterStats(Monster monster) {
@@ -193,7 +202,52 @@ public class Controller {
 
     //////// Animations ////////
 
+    private TranslateTransition transition;
+
+    private void PlayAnimation(Node node, int x, int y, float duration) {
+
+        transition = new TranslateTransition();
+        transition.setDuration(Duration.seconds(duration));
+
+        transition.setToX(x);
+        transition.setToY(y);
+        transition.setNode(node);
+        transition.play();
+
+    }
+
+    public void PlayerAttackAnimation() {
+
+        PlayAnimation(playerImage, 0, -300, 0.1f);
+        transition.setOnFinished(e -> {
+            PlayAnimation(playerImage, 0, 0, 0.5f);
+        });
+
+
+
+
+        //pause here
+
+
+
+
+
+    }
+
+    public void MonsterAppearAnimation() {
+
+        monsterPane.setTranslateY(monsterPane.getTranslateY()-300);
+
+        PlayAnimation(monsterPane, 0, 0, 1f);
+
+    }
+
     public void MonsterAttackAnimation() {
+
+        PlayAnimation(monsterPane, 0, 300, 0.1f);
+        transition.setOnFinished(e -> {
+            PlayAnimation(monsterPane, 0, 0, 0.5f);
+        });
 
     }
 

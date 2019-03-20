@@ -1,5 +1,2 @@
 Voidwalker 1 3
-Nether_Imp 3 2
-Wolf 3 3
 Phantom_Militia 2 4
-Splitting_Festeroot 4 4 Deathrattle

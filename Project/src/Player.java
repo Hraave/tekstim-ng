@@ -65,6 +65,7 @@ public class Player extends Character {
     @Override
     public void Die() {
         Controller.instance.PlayerDeath();
+        Sound.PlaySound("You Died");
     }
 
 }

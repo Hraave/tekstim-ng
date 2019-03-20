@@ -12,7 +12,7 @@ public class Encounter {
 
     public static Biome currentBiome = Biome.Grass;
 
-    private static final int pathEncounterAmount = 4;
+    private static final int pathEncounterAmount = 3;
     private static final int dungeonEncounterAmount = 1;
 
     private Type type;
@@ -41,8 +41,6 @@ public class Encounter {
                 case 2: DungeonEncounter();
                     break;
                 case 3: FindingWeapon();
-                    break;
-                case 4: DiscoverBiome();
                     break;
             }
 
