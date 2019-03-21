@@ -32,7 +32,7 @@ public class Room {
         }
         ///////////////////////////////////////
 
-        int numberOfMonsters = RNG.RandomInRange(1, 2);
+        int numberOfMonsters = RNG.RandomInRange(0, 0);
 
         for (int i = 0; i < numberOfMonsters; i++) {
 
@@ -60,6 +60,11 @@ public class Room {
             for (int i = 0; i < monsters.size(); i++) {
                 System.out.println("Room startbattle called");
                 CombatManager.StartBattle(monsters.get(i), this);
+            }
+
+            if (monsters.size() == 0) {
+                hasBeenVisited = true;
+                Enter();
             }
 
         }

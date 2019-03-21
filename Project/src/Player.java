@@ -21,10 +21,11 @@ public class Player extends Character {
 
     public int xp;
     public int level = 1;
+    public int requiredXP = 10;
 
     public int gold;
 
-    public Inventory inventory;
+    public Inventory inventory = new Inventory();
 
     private Weapon equippedWeapon;
     public Weapon GetEquippedWeapon() {
@@ -47,15 +48,17 @@ public class Player extends Character {
     }
 
     public void GainXP(int amount) {
-
         xp += amount;
-        System.out.println("Gained " + amount + " xp!");
-        if (xp >= level * 10) {
-            xp -= level * 10;
-            level++;
-            System.out.println("LEVEL UP!\nLevel: " + level);
-        }
 
+        if (xp >= requiredXP) {
+            xp -= requiredXP;
+            level++;
+            System.out.println("level up!");
+            requiredXP = level * 10;
+        }
+        Controller.instance.DisplayStats();
+
+        System.out.println("xp: " + xp + "\n requiredXP" + requiredXP + "\nlevel: " + level);
     }
 
     @Override

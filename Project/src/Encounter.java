@@ -69,7 +69,8 @@ public class Encounter {
         Dungeon dungeon = new Dungeon();
         dungeon.Generate();
 
-        Choice root = new Choice("You come across " + dungeon.type.toString().replaceAll("_", " "));
+        //Choice root = new Choice("You come across " + dungeon.type.toString().replaceAll("_", " "));
+        Choice root = new Choice("You come across a dungeon");
         Choice enter = root.AddChoice("Enter");
         Choice leave = root.AddChoice("Leave");
 
@@ -78,7 +79,7 @@ public class Encounter {
             dungeon.Enter();
         });
 
-        root.SetImage("dungeon/" + dungeon.type.toString().toLowerCase() + ".png");
+        //root.SetImage("dungeon/" + dungeon.type.toString().toLowerCase() + ".png");
         root.Display();
 
     }

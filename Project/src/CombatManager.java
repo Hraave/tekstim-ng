@@ -58,15 +58,8 @@ public class CombatManager {
         }
 
         monster.TakeDamage(damage);
-        System.out.println(monster.name + " took " + damage + " damage");
 
         Controller.instance.UpdateMonsterStats(monster);
-
-        if (!monster.isAlive) {
-            System.out.println("Monster is dead");
-            Controller.instance.EndBattle();
-            Player.instance.GainXP(monster.health * damage / 100);
-        }
 
     }
 
@@ -94,11 +87,13 @@ public class CombatManager {
             monster.GainHealth(damage);
         }
 
-        System.out.println(monster.name + " hit you for " + monster.damage + " damage");
-
     }
 
     private static void MonsterDeath() {
+
+        Controller.instance.EndBattle();
+        Player.instance.GainXP(monster.maxHealth);
+        Player.instance.RefillMana();
 
         Sound.PlaySound("monsters/" + monster.name + "/death", false);
         if (monster.ability == Monster.Ability.Deathrattle) {

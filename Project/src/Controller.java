@@ -3,6 +3,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -26,6 +27,8 @@ public class Controller {
 
     //// Player ////
     @FXML
+    Pane playerPane;
+    @FXML
     ImageView playerImage;
     @FXML
     Label playerHealthLabel;
@@ -33,6 +36,16 @@ public class Controller {
     Label playerDamageLabel;
     @FXML
     Label playerGoldLabel;
+    @FXML
+    ProgressBar levelProgressBar;
+    @FXML
+    Label xpLabel;
+    @FXML
+    Label levelLabel;
+    @FXML
+    ProgressBar manaBar;
+    @FXML
+    Label manaLabel;
 
     //// Image ////
     @FXML
@@ -87,6 +100,11 @@ public class Controller {
         playerHealthLabel.setText(String.valueOf(Player.instance.health));
         playerDamageLabel.setText(String.valueOf(Player.instance.GetEquippedWeapon().damage));
         playerGoldLabel.setText(String.valueOf(Player.instance.gold));
+        xpLabel.setText(Player.instance.xp + "/" + Player.instance.requiredXP);
+        levelLabel.setText("Level: " + Player.instance.level);
+        levelProgressBar.setProgress((Player.instance.xp * 100f / Player.instance.requiredXP) / 100f);
+        manaLabel.setText(Player.instance.mana + "/" + Player.instance.maxMana);
+        manaBar.setProgress((Player.instance.mana * 100f / Player.instance.maxMana) / 100f);
 
     }
 
@@ -95,6 +113,7 @@ public class Controller {
         for (Item item : Player.instance.inventory.items) {
             Button invButton = new Button(item.name);
             invButton.setOnAction(action -> item.Use());
+            imagePane.getChildren().add(invButton);
         }
 
     }
@@ -112,13 +131,17 @@ public class Controller {
         for (Choice choice : root.choices) {
 
             Button choiceButton = new Button(choice.text);
+            choiceButton.setPrefWidth(100);
+            choiceButton.setMinWidth(100);
+            choiceButton.setPrefHeight(100);
+            choiceButton.setMinHeight(100);
             choiceButton.setOnAction(action -> {
-                PlayAnimation(choiceButton, 0, 30, 0.1f);
+                PlayAnimation(choiceButton, 0, 10, 0.1f);
                 Sound.PlaySound("click", false);
                 root.MakeSelection(choice);
             });
             choiceButton.setOnMouseEntered(action -> {
-                PlayAnimation(choiceButton, 0, -30, 0.1f);
+                PlayAnimation(choiceButton, 0, -10, 0.1f);
             });
             choiceButton.setOnMouseExited(action -> {
                 PlayAnimation(choiceButton, 0, 0, 0.1f);
@@ -233,9 +256,9 @@ public class Controller {
 
     public void PlayerAttackAnimation() {
 
-        PlayAnimation(playerImage, 0, -300, 0.1f);
+        PlayAnimation(playerPane, 0, -300, 0.1f);
         transition.setOnFinished(e -> {
-            PlayAnimation(playerImage, 0, 0, 0.5f);
+            PlayAnimation(playerPane, 0, 0, 0.5f);
         });
 
 

@@ -25,12 +25,12 @@ public class MenuController {
     }
 
     public void PlayButtonPressed() {
-        Sound.PlaySound("click");
+        Sound.PlaySound("click", false);
         ShowClassSelectionMenu(true);
     }
 
     public void PlayButtonPressed2(ActionEvent actionEvent) throws Exception {
-        Sound.PlaySound("click");
+        Sound.PlaySound("click", false);
 
         Player player = new Player(nameField.getText(), 30, Player.Class.Mage);
 
@@ -55,7 +55,7 @@ public class MenuController {
     }
 
     public void QuitButtonPressed() {
-        Sound.PlaySound("click");
+        Sound.PlaySound("click", false);
         System.exit(0);
     }
 

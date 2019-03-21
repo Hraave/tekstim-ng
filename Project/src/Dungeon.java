@@ -24,11 +24,14 @@ public class Dungeon {
 
         ////////////////// Generate dungeon type //////////////////
 
+        type = Type.Dungeon;
+        /*
         type = Type.Icecrown_Citadel;
 
         if (Encounter.currentBiome == Encounter.Biome.Snow && RNG.PercentageChance(50)) {
             type = Type.Icecrown_Citadel;
         }
+        */
 
         ////////////////// Generate entrance room //////////////////
 
