@@ -86,6 +86,8 @@ public class Encounter {
     private void FindingWeapon() {
 
         Weapon weapon = new Weapon("Silver Sword", 3, 30);
+        //Weapon weapon = new Weapon();
+        weapon.GenerateRandomStats();
 
         Choice root = new Choice("You find a " + weapon.name + "\nDamage: " + weapon.damage);
         Choice take = root.AddChoice("Take");
@@ -93,11 +95,12 @@ public class Encounter {
 
         take.SetAction(() -> {
             System.out.println("You picked up the " + weapon.name);
-            //Player.instance.inventory.Add(weapon);
+            Player.instance.inventory.Add(weapon);
             Game.instance.NewEncounter();
         });
 
-        root.SetImage("weapons/silver_sword.png");
+        //root.SetImage("weapons/silver_sword.png");
+        root.SetImage("weapons/" + weapon.name.replaceAll(" ", "_").toLowerCase() + ".png");
         root.Display();
 
     }

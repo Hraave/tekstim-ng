@@ -7,13 +7,16 @@ import java.io.IOException;
 
 public class Sound {
 
-    public static void PlaySound(String filePath) {
+    public static void PlaySound(String filePath, boolean isLooping) {
 
         File file = new File("src/resources/sounds/" + filePath + ".wav");
 
         try {
             Clip clip = AudioSystem.getClip();
             clip.open(AudioSystem.getAudioInputStream(file));
+            if (isLooping) {
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
+            }
             clip.start();
 
         } catch (LineUnavailableException e) {

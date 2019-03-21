@@ -9,10 +9,14 @@ public class Weapon extends Item {
         this.critChance = critChance;
     }
 
-    public void GenerateStats() {
+    public void Use() {
+        Player.instance.SetEquippedWeapon(this);
+    }
 
-
-
+    public void GenerateRandomStats() {
+        this.name = "Silver Sword";
+        this.damage = RNG.RandomInRange(1, Player.instance.level / 2);
+        this.critChance = RNG.RandomInRange(1, 1 + Player.instance.level / 2);
     }
 
 }

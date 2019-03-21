@@ -90,6 +90,15 @@ public class Controller {
 
     }
 
+    public void OpenInventory() {
+
+        for (Item item : Player.instance.inventory.items) {
+            Button invButton = new Button(item.name);
+            invButton.setOnAction(action -> item.Use());
+        }
+
+    }
+
     public void PlayerDeath() {
         screenPane.getChildren().clear();
         SetBackground("death.png");
@@ -103,10 +112,16 @@ public class Controller {
         for (Choice choice : root.choices) {
 
             Button choiceButton = new Button(choice.text);
-            //choiceButton.setOnAction(action -> root.MakeSelection(choice));
             choiceButton.setOnAction(action -> {
-                Sound.PlaySound("click");
+                PlayAnimation(choiceButton, 0, 30, 0.1f);
+                Sound.PlaySound("click", false);
                 root.MakeSelection(choice);
+            });
+            choiceButton.setOnMouseEntered(action -> {
+                PlayAnimation(choiceButton, 0, -30, 0.1f);
+            });
+            choiceButton.setOnMouseExited(action -> {
+                PlayAnimation(choiceButton, 0, 0, 0.1f);
             });
             choiceBox.getChildren().add(choiceButton);
 

@@ -13,6 +13,11 @@ public class Player extends Character {
     }
 
     public Class playerClass;
+    public int mana;
+    public int maxMana;
+    public void RefillMana() {
+        mana = maxMana;
+    }
 
     public int xp;
     public int level = 1;
@@ -21,12 +26,15 @@ public class Player extends Character {
 
     public Inventory inventory;
 
-    public Weapon equippedWeapon;
+    private Weapon equippedWeapon;
     public Weapon GetEquippedWeapon() {
         if (equippedWeapon == null) {
             return new Weapon("Fists", 1, 1);
         }
         return equippedWeapon;
+    }
+    public void SetEquippedWeapon(Weapon weapon) {
+        equippedWeapon = weapon;
     }
 
     public static Player instance;
@@ -65,7 +73,7 @@ public class Player extends Character {
     @Override
     public void Die() {
         Controller.instance.PlayerDeath();
-        Sound.PlaySound("You Died");
+        Sound.PlaySound("You Died", false);
     }
 
 }

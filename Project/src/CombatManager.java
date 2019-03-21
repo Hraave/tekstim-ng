@@ -5,15 +5,18 @@ public class CombatManager {
 
     public static void StartBattle(Monster m) {
         monster = m;
-        Sound.PlaySound("monsters/" + monster.name + "/play");
-        Controller.instance.StartBattle(m);
-        BattleLoop();
+        Start();
     }
 
     public static void StartBattle(Monster m, Room r) {
         monster = m;
         room = r;
-        Controller.instance.StartBattle(m);
+        Start();
+    }
+
+    private static void Start() {
+        Sound.PlaySound("monsters/" + monster.name + "/play", false);
+        Controller.instance.StartBattle(monster);
         BattleLoop();
     }
 
@@ -43,7 +46,7 @@ public class CombatManager {
     private static void AttackMonster() {
 
         Controller.instance.PlayerAttackAnimation();
-        Sound.PlaySound("hitsound");
+        Sound.PlaySound("hitsound", false);
 
         Weapon weapon = Player.instance.GetEquippedWeapon();
 
@@ -74,9 +77,9 @@ public class CombatManager {
             Controller.instance.MonsterRegenAnimation();
         }
 
-        Sound.PlaySound("monsters/" + monster.name + "/attack");
+        Sound.PlaySound("monsters/" + monster.name + "/attack", false);
         Controller.instance.MonsterAttackAnimation();
-        Sound.PlaySound("hitsound");
+        Sound.PlaySound("hitsound", false);
 
         int damage = monster.damage;
 
@@ -97,7 +100,7 @@ public class CombatManager {
 
     private static void MonsterDeath() {
 
-        Sound.PlaySound("monsters/" + monster.name + "/death");
+        Sound.PlaySound("monsters/" + monster.name + "/death", false);
         if (monster.ability == Monster.Ability.Deathrattle) {
             Monster newMonster = new Monster(" ", 1, 1, null);
             if (monster.name.equals("Splitting Festeroot")) {
