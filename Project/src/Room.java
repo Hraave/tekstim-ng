@@ -3,14 +3,16 @@ import java.util.List;
 
 public class Room {
 
+    private static final int maxNumberOfMonsters = 0;
+
     public int x;
     public int y;
     public Encounter encounter;
     public boolean hasBeenVisited;
     public boolean isBossRoom;
+    public boolean containsBossKey;
 
     private List<Monster> monsters = new ArrayList<>();
-    private List<Item> items = new ArrayList<>();
 
     protected Dungeon dungeon;
 
@@ -24,15 +26,7 @@ public class Room {
 
         ////////////////// Generate monsters //////////////////
 
-        //Icecrown citadel first room encounter
-        if (dungeon.type == Dungeon.Type.Icecrown_Citadel && x == 0 && y == 0) {
-            Monster monster = MonsterFactory.GetMonster("Lord Marrowgar");
-            monsters.add(monster);
-            return;
-        }
-        ///////////////////////////////////////
-
-        int numberOfMonsters = RNG.RandomInRange(0, 0);
+        int numberOfMonsters = RNG.RandomInRange(0, maxNumberOfMonsters);
 
         for (int i = 0; i < numberOfMonsters; i++) {
 
@@ -58,7 +52,6 @@ public class Room {
             System.out.println("There are " + monsters.size() + " monsters in this room");
 
             for (int i = 0; i < monsters.size(); i++) {
-                System.out.println("Room startbattle called");
                 CombatManager.StartBattle(monsters.get(i), this);
             }
 
@@ -68,8 +61,15 @@ public class Room {
             }
 
         }
+        /////////////////////////////////////////////
 
         if (hasBeenVisited) {
+
+            if (containsBossKey) {
+                System.out.println("You found the boss key!");
+                Player.instance.inventory.Add(new Key("Boss Key"));
+            }
+
             encounter.Call();
             dungeon.PromptToMove();
         }

@@ -1,23 +1,8 @@
 public class Player extends Character {
 
-    public enum Class {
-        Druid,
-        Hunter,
-        Mage,
-        Paladin,
-        Priest,
-        Rogue,
-        Shaman,
-        Warlock,
-        Warrior
-    }
-
-    public Class playerClass;
-    public int mana;
-    public int maxMana;
-    public void RefillMana() {
-        mana = maxMana;
-    }
+    public HeroPower heroPower;
+    public int mana = 10;
+    public int maxMana = 10;
 
     public int xp;
     public int level = 1;
@@ -40,9 +25,8 @@ public class Player extends Character {
 
     public static Player instance;
 
-    public Player(String name, int health, Class playerClass) {
+    public Player(String name, int health) {
         super(name, health);
-        this.playerClass = playerClass;
 
         instance = this;
     }
@@ -59,6 +43,18 @@ public class Player extends Character {
         Controller.instance.DisplayStats();
 
         System.out.println("xp: " + xp + "\n requiredXP" + requiredXP + "\nlevel: " + level);
+    }
+
+    public void RefillMana() {
+        mana = maxMana;
+    }
+
+    public void UseHeroPower() {
+        if (heroPower != null && mana >= heroPower.manaCost) {
+            mana -= heroPower.manaCost;
+            heroPower.Activate(this);
+            Controller.instance.DisplayStats();
+        }
     }
 
     @Override

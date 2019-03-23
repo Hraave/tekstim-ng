@@ -1,37 +1,20 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class Dungeon {
-
-    public enum Type {
-        House,
-        Dungeon,
-        Cave,
-        Tomb,
-        Temple,
-        Icecrown_Citadel
-    }
-
-    public Type type;
 
     public enum Direction { UP, DOWN, RIGHT, LEFT }
 
     private List<Room> rooms = new ArrayList<>();
     private Room currentRoom;
+    private Direction playerFacingDirection = Direction.UP;
+
+    private static final int minNumberOfRooms = 2;
+    private static final int maxNumberOfRooms = 5;
 
     public void Generate() {
-
-        ////////////////// Generate dungeon type //////////////////
-
-        type = Type.Dungeon;
-        /*
-        type = Type.Icecrown_Citadel;
-
-        if (Encounter.currentBiome == Encounter.Biome.Snow && RNG.PercentageChance(50)) {
-            type = Type.Icecrown_Citadel;
-        }
-        */
 
         ////////////////// Generate entrance room //////////////////
 
@@ -41,7 +24,7 @@ public class Dungeon {
 
         ////////////////// Generate rooms for the dungeon //////////////////
 
-        int numberOfRooms = RNG.RandomInRange(1, 10);
+        int numberOfRooms = RNG.RandomInRange(minNumberOfRooms - 1, maxNumberOfRooms - 1);
 
         for (int i = 0; i < numberOfRooms; i++) {
 
@@ -74,6 +57,13 @@ public class Dungeon {
                 continue;
             }
 
+            //////////////////////
+            if (x < 0 || y < 0) {
+                i--;
+                continue;
+            }
+            //////////////////////
+
             Room room = new Room(x, y, this);
 
             if (i == numberOfRooms - 1) {
@@ -84,6 +74,16 @@ public class Dungeon {
             rooms.add(room);
 
         }
+
+        ////////////////// Add Boss Room Key to a random room //////////////////
+
+        List<Room> nonBossRooms = rooms.stream()
+                .filter(room -> !room.isBossRoom)
+                .collect(Collectors.toList());
+
+        Random random = new Random();
+        Room randomRoom = nonBossRooms.get(random.nextInt(nonBossRooms.size()));
+        randomRoom.containsBossKey = true;
 
     }
 
@@ -117,24 +117,32 @@ public class Dungeon {
 
         for (Room room : rooms) {
             if (room.x == currentRoom.x + 1 && room.y == currentRoom.y) {
-                // Room is on the right
+                /*
                 root.AddChoice(right);
                 Controller.instance.DisplayDoor(Direction.RIGHT, room.isBossRoom);
+                */
+                AddDoor(root, right, left, forward, back, Direction.RIGHT, room);
             }
             if (room.x == currentRoom.x - 1 && room.y == currentRoom.y) {
-                // Room is on the left
+                /*
                 root.AddChoice(left);
                 Controller.instance.DisplayDoor(Direction.LEFT, room.isBossRoom);
+                */
+                AddDoor(root, right, left, forward, back, Direction.LEFT, room);
             }
             if (room.x == currentRoom.x && room.y == currentRoom.y + 1) {
-                // Room is above
+                /*
                 root.AddChoice(forward);
                 Controller.instance.DisplayDoor(Direction.UP, room.isBossRoom);
+                */
+                AddDoor(root, right, left, forward, back, Direction.UP, room);
             }
             if (room.x == currentRoom.x && room.y == currentRoom.y - 1) {
-                // Room is below
+                /*
                 root.AddChoice(back);
                 Controller.instance.DisplayDoor(Direction.DOWN, room.isBossRoom);
+                */
+                AddDoor(root, right, left, forward, back, Direction.DOWN, room);
             }
         }
 
@@ -147,12 +155,119 @@ public class Dungeon {
 
     }
 
+    private void AddDoor(Choice root, Choice right, Choice left, Choice forward, Choice back, Direction direction, Room room) {
+
+        Direction doorDirection = Direction.UP;
+
+        if (playerFacingDirection == Direction.RIGHT) {
+            if (direction == Direction.RIGHT) {
+                root.AddChoice(forward);
+                doorDirection = Direction.UP;
+            } else if (direction == Direction.LEFT) {
+                root.AddChoice(back);
+                doorDirection = Direction.DOWN;
+            } else if (direction == Direction.UP) {
+                root.AddChoice(left);
+                doorDirection = Direction.LEFT;
+            } else if (direction == Direction.DOWN) {
+                root.AddChoice(right);
+                doorDirection = Direction.RIGHT;
+            }
+        } else if (playerFacingDirection == Direction.LEFT) {
+            if (direction == Direction.RIGHT) {
+                root.AddChoice(back);
+                doorDirection = Direction.DOWN;
+            } else if (direction == Direction.LEFT) {
+                root.AddChoice(forward);
+                doorDirection = Direction.UP;
+            } else if (direction == Direction.UP) {
+                root.AddChoice(right);
+                doorDirection = Direction.RIGHT;
+            } else if (direction == Direction.DOWN) {
+                root.AddChoice(left);
+                doorDirection = Direction.LEFT;
+            }
+        } else if (playerFacingDirection == Direction.UP) {
+            if (direction == Direction.RIGHT) {
+                root.AddChoice(right);
+                doorDirection = Direction.RIGHT;
+            } else if (direction == Direction.LEFT) {
+                root.AddChoice(left);
+                doorDirection = Direction.LEFT;
+            } else if (direction == Direction.UP) {
+                root.AddChoice(forward);
+                doorDirection = Direction.UP;
+            } else if (direction == Direction.DOWN) {
+                root.AddChoice(back);
+                doorDirection = Direction.DOWN;
+            }
+        } else if (playerFacingDirection == Direction.DOWN) {
+            if (direction == Direction.RIGHT) {
+                root.AddChoice(left);
+                doorDirection = Direction.LEFT;
+            } else if (direction == Direction.LEFT) {
+                root.AddChoice(right);
+                doorDirection = Direction.RIGHT;
+            } else if (direction == Direction.UP) {
+                root.AddChoice(back);
+                doorDirection = Direction.DOWN;
+            } else if (direction == Direction.DOWN) {
+                root.AddChoice(forward);
+                doorDirection = Direction.UP;
+            }
+        }
+
+        Controller.instance.DisplayDoor(doorDirection, room.isBossRoom);
+    }
+
+    private Direction AdjustToPlayerFacingDirection(Direction direction) {
+
+        Direction newDirection = direction;
+
+        if (playerFacingDirection == Direction.RIGHT) {
+            if (direction == Direction.RIGHT) {
+                newDirection = Direction.DOWN;
+            } else if (direction == Direction.LEFT) {
+                newDirection = Direction.UP;
+            } else if (direction == Direction.UP) {
+                newDirection = Direction.RIGHT;
+            } else if (direction == Direction.DOWN) {
+                newDirection = Direction.LEFT;
+            }
+        } else if (playerFacingDirection == Direction.LEFT) {
+            if (direction == Direction.RIGHT) {
+                newDirection = Direction.UP;
+            } else if (direction == Direction.LEFT) {
+                newDirection = Direction.DOWN;
+            } else if (direction == Direction.UP) {
+                newDirection = Direction.LEFT;
+            } else if (direction == Direction.DOWN) {
+                newDirection = Direction.RIGHT;
+            }
+        } else if (playerFacingDirection == Direction.DOWN) {
+            if (direction == Direction.RIGHT) {
+                newDirection = Direction.LEFT;
+            } else if (direction == Direction.LEFT) {
+                newDirection = Direction.RIGHT;
+            } else if (direction == Direction.UP) {
+                newDirection = Direction.DOWN;
+            } else if (direction == Direction.DOWN) {
+                newDirection = Direction.UP;
+            }
+        }
+
+        return newDirection;
+
+    }
+
     private void Move(Direction direction) {
 
         Controller.instance.ExitRoom();
 
         int x = currentRoom.x;
         int y = currentRoom.y;
+
+        direction = AdjustToPlayerFacingDirection(direction);
 
         if (direction == Direction.RIGHT) {
             x++;
@@ -164,13 +279,32 @@ public class Dungeon {
             y--;
         }
 
+        playerFacingDirection = direction;
+
         for (Room room : rooms) {
             if (room.x == x && room.y == y) {
-                currentRoom = room;
-                room.Enter();
+
+                // Checks for key if trying to enter boss room
+                if (room.isBossRoom) {
+                    for (Item item : Player.instance.inventory.items) {
+                        if (item.name.equals("Boss Key")) {
+                            EnterRoom(room);
+                            return;
+                        }
+                    }
+                    System.out.println("You don't have a boss key!");
+                    PromptToMove();
+                    return;
+                } else {
+                    EnterRoom(room);
+                }
+
             }
         }
-
     }
 
+    private void EnterRoom(Room room) {
+        currentRoom = room;
+        room.Enter();
+    }
 }

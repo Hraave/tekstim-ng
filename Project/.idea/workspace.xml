@@ -1,31 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc3befbc-57a4-4682-8566-21b32b6f904f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="30838dc3-40e8-4e89-be77-63b85079235f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/HeroPower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Key.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/CombatManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/CombatManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/monsters_bosses.txt" beforeDir="false" afterPath="$PROJECT_DIR$/monsters_bosses.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/BossRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/BossRoom.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/Dungeon$Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Dungeon$Direction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/Dungeon$Type.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Dungeon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/Encounter$Biome.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/Encounter$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Encounter$Type.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/Encounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Encounter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Inventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/META-INF/Project.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/MenuController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/Player$Class.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Sound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Sound.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Weapon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CombatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CombatManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/Thumbs.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/monsters/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/monsters/Thumbs.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/weapons/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/weapons/Thumbs.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BossRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BossRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dungeon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Encounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encounter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sprites/dungeon/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/dungeon/Thumbs.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sprites/monsters/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/monsters/Thumbs.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sprites/weapons/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/weapons/Thumbs.db" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,17 +47,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Encounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="81" column="85" selection-start-line="81" selection-start-column="85" selection-end-line="81" selection-end-column="85" />
+            <state relative-caret-position="1666">
+              <caret line="123" column="56" lean-forward="true" selection-start-line="123" selection-start-column="56" selection-end-line="123" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Dungeon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="43" column="53" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
+            <state relative-caret-position="425">
+              <caret line="80" column="49" lean-forward="true" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,11 +65,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Room.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="28" column="74" lean-forward="true" selection-start-line="28" selection-start-column="74" selection-end-line="28" selection-end-column="74" />
+            <state relative-caret-position="661">
+              <caret line="69" column="67" lean-forward="true" selection-start-line="69" selection-start-column="67" selection-end-line="69" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -69,11 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="106" column="92" selection-start-line="106" selection-start-column="92" selection-end-line="106" selection-end-column="92" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="17">
+              <caret line="80" selection-start-line="80" selection-end-line="80" />
             </state>
           </provider>
         </entry>
@@ -86,22 +94,30 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/Weapon.java" />
-        <option value="$PROJECT_DIR$/src/Player.java" />
-        <option value="$PROJECT_DIR$/src/CombatManager.java" />
-        <option value="$PROJECT_DIR$/src/Controller.java" />
+        <option value="$PROJECT_DIR$/src/BossRoom.java" />
+        <option value="$PROJECT_DIR$/monsters_bosses.txt" />
         <option value="$PROJECT_DIR$/src/game.fxml" />
-        <option value="$PROJECT_DIR$/monsters_scripted.txt" />
-        <option value="$PROJECT_DIR$/src/Dungeon.java" />
+        <option value="$PROJECT_DIR$/src/MenuController.java" />
+        <option value="$PROJECT_DIR$/src/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
+        <option value="$PROJECT_DIR$/src/HeroPower.java" />
         <option value="$PROJECT_DIR$/src/Encounter.java" />
+        <option value="$PROJECT_DIR$/src/Key.java" />
         <option value="$PROJECT_DIR$/src/Room.java" />
+        <option value="$PROJECT_DIR$/src/Dungeon.java" />
       </list>
     </option>
   </component>
@@ -117,7 +133,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -134,11 +149,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553179551183" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553365053055" />
     <property name="settings.editor.selected.configurable" value="configurable.group.other" />
   </component>
   <component name="RunDashboard">
@@ -172,18 +188,18 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dc3befbc-57a4-4682-8566-21b32b6f904f" name="Default Changelist" comment="" />
-      <created>1553173380366</created>
+      <changelist id="30838dc3-40e8-4e89-be77-63b85079235f" name="Default Changelist" comment="" />
+      <created>1553261280726</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1553173380366</updated>
+      <updated>1553261280726</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -212,17 +228,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/menu.fxml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="37" column="75" lean-forward="true" selection-start-line="37" selection-start-column="75" selection-end-line="37" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -230,10 +235,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/monsters_bosses.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="10" lean-forward="true" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MenuController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="34" column="60" lean-forward="true" selection-start-line="34" selection-start-column="60" selection-end-line="34" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CombatManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HeroPower.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding>
+            <element signature="e#258#259#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Weapon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="51" lean-forward="true" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/BossRoom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+          <folding>
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#276#277#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Choice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Key.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding>
+            <element signature="e#65#66#0" expanded="true" />
+            <element signature="e#85#86#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -247,62 +331,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="27" column="49" lean-forward="true" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/monsters_scripted.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CombatManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="95" column="37" selection-start-line="95" selection-start-column="37" selection-end-line="95" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game.fxml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="106" column="92" selection-start-line="106" selection-start-column="92" selection-end-line="106" selection-end-column="92" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Encounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="81" column="85" selection-start-line="81" selection-start-column="85" selection-end-line="81" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dungeon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="43" column="53" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="1666">
+          <caret line="123" column="56" lean-forward="true" selection-start-line="123" selection-start-column="56" selection-end-line="123" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Room.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="28" column="74" lean-forward="true" selection-start-line="28" selection-start-column="74" selection-end-line="28" selection-end-column="74" />
+        <state relative-caret-position="661">
+          <caret line="69" column="67" lean-forward="true" selection-start-line="69" selection-start-column="67" selection-end-line="69" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Dungeon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="80" column="49" lean-forward="true" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

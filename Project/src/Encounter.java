@@ -1,16 +1,6 @@
-import java.util.Random;
-
 public class Encounter {
 
     public enum Type { PATH, DUNGEON }
-
-    public enum Biome {
-        Grass,
-        Forest,
-        Snow
-    }
-
-    public static Biome currentBiome = Biome.Grass;
 
     private static final int pathEncounterAmount = 3;
     private static final int dungeonEncounterAmount = 1;
@@ -47,7 +37,7 @@ public class Encounter {
         } else if (type == Type.DUNGEON) {
 
             switch (encounterNumber) {
-                case 1: FindingWeapon();
+                case 1: Chest();
                     break;
             }
 
@@ -106,36 +96,9 @@ public class Encounter {
 
     }
 
-    private void DiscoverBiome() {
-
-        Random random = new Random();
-        Biome biome = Biome.values()[random.nextInt(Biome.values().length)];
-
-        String biomeText = "";
-        if (biome == Biome.Grass) {
-            biomeText = "the grasslands";
-        } else if (biome == Biome.Forest) {
-            biomeText = "the dark forest";
-        } else if (biome == Biome.Snow) {
-            biomeText = "the snow area";
-        }
-
-        Choice root = new Choice("You find your way out of " + biomeText);
-        Choice enter = root.AddChoice("Enter " + biomeText);
-        Choice leave = root.AddChoice("Return");
-
-        enter.SetAction(() -> {
-            currentBiome = biome;
-        });
-
-        root.SetImage(biome.toString() + ".png");
-        root.Display();
-
-    }
-
     ///////////////////////////////////////////////////// DUNGEON ENCOUNTERS /////////////////////////////////////////////////////
 
-    private void Chest() {
+    private void ChestOld() {
 
         Choice root = new Choice("There is a chest in the middle of the room");
         Choice open = root.AddChoice("Open");
@@ -153,6 +116,17 @@ public class Encounter {
         });
 
         root.Display();
+
+    }
+
+    private void Chest() {
+
+        Choice openChest = new Choice("Open the chest");
+
+        openChest.SetAction(() -> {
+            System.out.println("It's empty");
+
+        });
 
     }
 

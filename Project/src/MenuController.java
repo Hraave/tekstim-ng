@@ -32,7 +32,7 @@ public class MenuController {
     public void PlayButtonPressed2(ActionEvent actionEvent) throws Exception {
         Sound.PlaySound("click", false);
 
-        Player player = new Player(nameField.getText(), 30, Player.Class.Mage);
+        Player player = new Player(nameField.getText(), 30);
 
         //////////// Switch to game scene ////////////
         Parent root = FXMLLoader.load(getClass().getResource("game.fxml"));

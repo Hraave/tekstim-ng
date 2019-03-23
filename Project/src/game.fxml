@@ -127,7 +127,7 @@
                   </Pane>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Button" />
+                        <Button mnemonicParsing="false" onAction="#HeroPowerButton" text="Button" />
                         <Label fx:id="manaLabel" text="Label" />
                         <ProgressBar fx:id="manaBar" prefWidth="200.0" progress="0.0" />
                      </children>

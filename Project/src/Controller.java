@@ -79,8 +79,6 @@ public class Controller {
         Game game = new Game();
         game.Start();
 
-        String playerClass = Player.instance.playerClass.toString();
-        SetImage(playerImage, "heroes/" + playerClass.toLowerCase() + ".png");
         DisplayStats();
 
         imagePane.managedProperty().bind(imagePane.visibleProperty());
@@ -105,6 +103,12 @@ public class Controller {
         levelProgressBar.setProgress((Player.instance.xp * 100f / Player.instance.requiredXP) / 100f);
         manaLabel.setText(Player.instance.mana + "/" + Player.instance.maxMana);
         manaBar.setProgress((Player.instance.mana * 100f / Player.instance.maxMana) / 100f);
+
+    }
+
+    public void HeroPowerButton() {
+
+        Player.instance.UseHeroPower();
 
     }
 
