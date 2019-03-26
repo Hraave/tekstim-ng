@@ -9,6 +9,7 @@ public class Game {
     public void Start() {
 
         MonsterFactory.Setup();
+        ItemFactory.Setup();
         NewEncounter();
 
     }

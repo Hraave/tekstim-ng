@@ -7,7 +7,7 @@ public class Dungeon {
 
     public enum Direction { UP, DOWN, RIGHT, LEFT }
 
-    private List<Room> rooms = new ArrayList<>();
+    public List<Room> rooms = new ArrayList<>();
     private Room currentRoom;
     private Direction playerFacingDirection = Direction.UP;
 

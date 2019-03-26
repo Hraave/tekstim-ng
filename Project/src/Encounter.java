@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Encounter {
 
     public enum Type { PATH, DUNGEON }
@@ -30,7 +32,7 @@ public class Encounter {
                     break;
                 case 2: DungeonEncounter();
                     break;
-                case 3: FindingWeapon();
+                case 3: FindingItem();
                     break;
             }
 
@@ -65,7 +67,6 @@ public class Encounter {
         Choice leave = root.AddChoice("Leave");
 
         enter.SetAction(() -> {
-            System.out.println("Entered dungeon");
             dungeon.Enter();
         });
 
@@ -74,25 +75,55 @@ public class Encounter {
 
     }
 
-    private void FindingWeapon() {
+    private void FindingItem() {
 
-        Weapon weapon = new Weapon("Silver Sword", 3, 30);
-        //Weapon weapon = new Weapon();
-        weapon.GenerateRandomStats();
+        /*
 
-        Choice root = new Choice("You find a " + weapon.name + "\nDamage: " + weapon.damage);
+        Weapon weapon = Stats.GenerateRandomWeapon();
+        Shield shield = Stats.GenerateRandomShield();
+        Armor armor = Stats.GenerateRandomArmor();
+
+        Item[] itemList = new Item[] {weapon, shield, armor};
+
+        Random random = new Random();
+        Item item = itemList[random.nextInt(itemList.length)];
+
+        Choice root = new Choice("You find a " + item.name);
         Choice take = root.AddChoice("Take");
         Choice leave = root.AddChoice("Leave");
 
         take.SetAction(() -> {
-            System.out.println("You picked up the " + weapon.name);
-            Player.instance.inventory.Add(weapon);
+            System.out.println("You picked up the " + item.name);
+            Player.instance.inventory.Add(item);
             Game.instance.NewEncounter();
         });
 
-        //root.SetImage("weapons/silver_sword.png");
-        root.SetImage("weapons/" + weapon.name.replaceAll(" ", "_").toLowerCase() + ".png");
+        String path = "";
+        if (item instanceof Weapon) {
+            path = "inventory/weapons/";
+        } else if (item instanceof Shield) {
+            path = "shields/";
+        } else if (item instanceof Armor) {
+            path = "armor/";
+        }
+        root.SetImage("inventory/" + path + item.name.replaceAll(" ", "_").toLowerCase() + ".png");
         root.Display();
+
+        */
+
+    }
+
+    private void BearCave() {
+
+        Choice root = new Choice("You come across a cave");
+        Choice enter = root.AddChoice("Enter");
+        Choice leave = root.AddChoice("Leave");
+
+        enter.SetAction(() -> {
+            System.out.println("A bear comes out to attack you!");
+            Monster monster = MonsterFactory.GetRandomMonster();
+            CombatManager.StartBattle(monster);
+        });
 
     }
 

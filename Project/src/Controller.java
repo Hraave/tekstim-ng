@@ -1,9 +1,7 @@
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -43,9 +41,7 @@ public class Controller {
     @FXML
     Label levelLabel;
     @FXML
-    ProgressBar manaBar;
-    @FXML
-    Label manaLabel;
+    GridPane inventoryPane;
 
     //// Image ////
     @FXML
@@ -73,6 +69,41 @@ public class Controller {
     @FXML
     ImageView doorRight;
 
+    ////
+
+    @FXML
+    HBox hBox;
+    @FXML
+    Region region1;
+    @FXML
+    Region region2;
+
+    @FXML
+    ImageView leftHandImage;
+    @FXML
+    ImageView rightHandImage;
+    @FXML
+    ImageView helmetImage;
+    @FXML
+    ImageView armorImage;
+    @FXML
+    ImageView bootsImage;
+
+    @FXML
+    Label strengthLabel;
+    @FXML
+    Label perceptionLabel;
+    @FXML
+    Label enduranceLabel;
+    @FXML
+    Label charismaLabel;
+    @FXML
+    Label intelligenceLabel;
+    @FXML
+    Label agilityLabel;
+    @FXML
+    Label luckLabel;
+
     public void initialize() {
         instance = this;
 
@@ -86,23 +117,51 @@ public class Controller {
 
         imagePane.setVisible(false);
         monsterPane.setVisible(false);
+        inventoryPane.setVisible(false);
 
         doorRight.setVisible(false);
         doorLeft.setVisible(false);
         doorForward.setVisible(false);
 
+        inventoryPane.setBackground(Background.EMPTY);
+        String style = "-fx-background-color: rgba(255, 255, 255, 0.5);";
+        inventoryPane.setStyle(style);
+
+        //inventoryPane.setPrefSize(50 * Inventory.columns, 50 * Inventory.rows);
+        //inventoryPane.setMinSize(50 * Inventory.columns, 50 * Inventory.rows);
+
+        for (int i = 0; i < Inventory.columns; i++) {
+            ColumnConstraints column = new ColumnConstraints(50);
+            inventoryPane.getColumnConstraints().add(column);
+        }
+        for (int i = 0; i < Inventory.rows; i++) {
+            RowConstraints row = new RowConstraints(50);
+            inventoryPane.getRowConstraints().add(row);
+        }
+
+        hBox.setHgrow(region1, Priority.ALWAYS);
+        hBox.setHgrow(region2, Priority.ALWAYS);
+
     }
 
     public void DisplayStats() {
 
-        playerHealthLabel.setText(String.valueOf(Player.instance.health));
-        playerDamageLabel.setText(String.valueOf(Player.instance.GetEquippedWeapon().damage));
-        playerGoldLabel.setText(String.valueOf(Player.instance.gold));
-        xpLabel.setText(Player.instance.xp + "/" + Player.instance.requiredXP);
-        levelLabel.setText("Level: " + Player.instance.level);
-        levelProgressBar.setProgress((Player.instance.xp * 100f / Player.instance.requiredXP) / 100f);
-        manaLabel.setText(Player.instance.mana + "/" + Player.instance.maxMana);
-        manaBar.setProgress((Player.instance.mana * 100f / Player.instance.maxMana) / 100f);
+        Player player = Player.instance;
+        playerHealthLabel.setText(String.valueOf(player.health));
+        playerDamageLabel.setText(String.valueOf(player.GetEquippedWeapon().damage));
+        playerGoldLabel.setText(String.valueOf(player.gold));
+        xpLabel.setText(player.xp + "/" + player.requiredXP);
+        levelLabel.setText("Level: " + player.level);
+        levelProgressBar.setProgress((player.xp * 100f / player.requiredXP) / 100f);
+        //manaLabel.setText(Player.instance.mana + "/" + Player.instance.maxMana);
+        //manaBar.setProgress((Player.instance.mana * 100f / Player.instance.maxMana) / 100f);
+        strengthLabel.setText(String.valueOf(player.strength));
+        perceptionLabel.setText(String.valueOf(player.perception));
+        enduranceLabel.setText(String.valueOf(player.endurance));
+        charismaLabel.setText(String.valueOf(player.charisma));
+        intelligenceLabel.setText(String.valueOf(player.intelligence));
+        agilityLabel.setText(String.valueOf(player.agility));
+        luckLabel.setText(String.valueOf(player.luck));
 
     }
 
@@ -112,14 +171,96 @@ public class Controller {
 
     }
 
-    public void OpenInventory() {
-
-        for (Item item : Player.instance.inventory.items) {
-            Button invButton = new Button(item.name);
-            invButton.setOnAction(action -> item.Use());
-            imagePane.getChildren().add(invButton);
+    public void ToggleInventory() {
+        inventoryPane.getChildren().clear();
+        if (inventoryPane.isVisible()) {
+            inventoryPane.setVisible(false);
+            return;
         }
 
+        inventoryPane.setVisible(true);
+
+        int column = 0;
+        int row = 0;
+        for (Item item : Player.instance.inventory.items) {
+
+            String name = item.name;
+            if (item instanceof Weapon) {
+                name = item.name + "\nDamage: " + ((Weapon) item).damage + "\nCrit chance: " + ((Weapon) item).critChance;
+            }
+
+            Button invButton = new Button();
+            invButton.setPrefWidth(50);
+            invButton.setPrefHeight(50);
+
+            ImageView buttonImage = new ImageView();
+            buttonImage.setFitWidth(50);
+            buttonImage.setFitHeight(50);
+            SetImage(buttonImage, "inventory/weapons/" + item.name.replaceAll(" ", "_").toLowerCase() + ".png");
+            invButton.setGraphic(buttonImage);
+
+            Tooltip tooltip = new Tooltip(name);
+
+            invButton.setOnMouseMoved(action -> {
+                tooltip.show(invButton, action.getSceneX() + 30, action.getSceneY() + 30);
+            });
+            invButton.setOnMouseExited(action -> {
+                tooltip.hide();
+            });
+
+            invButton.setOnAction(action -> item.Use());
+
+            ContextMenu contextMenu = new ContextMenu();
+
+            MenuItem use = new MenuItem("Use");
+            MenuItem delete = new MenuItem("Delete");
+            use.setOnAction(action -> {
+                item.Use();
+            });
+            delete.setOnAction(action -> {
+                Player.instance.inventory.Remove(item);
+            });
+
+            if (item instanceof Weapon) {
+                contextMenu.getItems().add(use);
+            }
+            if (!(item instanceof Key)) {
+                contextMenu.getItems().add(delete);
+            }
+
+            invButton.setOnContextMenuRequested(action -> {
+                contextMenu.show(invButton, action.getScreenX(), action.getScreenY());
+            });
+
+            inventoryPane.add(invButton, column, row);
+
+            column++;
+
+            if (column == Inventory.rows) {
+                row++;
+                column = 0;
+            }
+
+        }
+
+    }
+
+    public void SetSlotImage(Item item) {
+        String name = item.name.replaceAll(" ", "_").toLowerCase() + ".png";
+
+        if (item instanceof Weapon) {
+            SetImage(rightHandImage, "inventory/weapons/" + name);
+        } else if (item instanceof Armor) {
+            if (((Armor) item).type == Armor.Type.Helmet) {
+                SetImage(helmetImage, "inventory/armor/" + name);
+            } else if (((Armor) item).type == Armor.Type.Chestplate) {
+                SetImage(armorImage, "inventory/armor/" + name);
+            } else if (((Armor) item).type == Armor.Type.Boots) {
+                SetImage(bootsImage, "inventory/armor/" + name);
+            }
+        } else if (item instanceof Shield) {
+            SetImage(leftHandImage, "inventory/shields/" + name);
+        }
     }
 
     public void PlayerDeath() {
@@ -157,7 +298,8 @@ public class Controller {
     }
 
     public void QuitButtonPressed() {
-        System.exit(0);
+        //System.exit(0);
+        Player.instance.inventory.Add(new Weapon("Silver Sword", 1, 1));
     }
 
     public void DisplayImage(String path) {
@@ -269,6 +411,8 @@ public class Controller {
 
 
         //pause here
+
+
 
 
 
