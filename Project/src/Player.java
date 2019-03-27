@@ -1,5 +1,13 @@
 public class Player extends Character {
 
+    public int strength;
+    public int perception;
+    public int endurance;
+    public int charisma;
+    public int intelligence;
+    public int agility;
+    public int luck;
+
     public HeroPower heroPower;
     public int mana = 10;
     public int maxMana = 10;
@@ -21,12 +29,25 @@ public class Player extends Character {
     }
     public void SetEquippedWeapon(Weapon weapon) {
         equippedWeapon = weapon;
+        Controller.instance.DisplayStats();
     }
+
+    public Shield shield;
+    public Armor helmet;
+    public Armor chestplate;
+    public Armor boots;
 
     public static Player instance;
 
-    public Player(String name, int health) {
-        super(name, health);
+    public Player(String name, int strength, int perception, int endurance, int charisma, int intelligence, int agility, int luck) {
+        super(name, 30);
+        this.strength = strength;
+        this.perception = perception;
+        this.endurance = endurance;
+        this.charisma = charisma;
+        this.intelligence = intelligence;
+        this.agility = agility;
+        this.luck = luck;
 
         instance = this;
     }
@@ -37,12 +58,9 @@ public class Player extends Character {
         if (xp >= requiredXP) {
             xp -= requiredXP;
             level++;
-            System.out.println("level up!");
             requiredXP = level * 10;
         }
         Controller.instance.DisplayStats();
-
-        System.out.println("xp: " + xp + "\n requiredXP" + requiredXP + "\nlevel: " + level);
     }
 
     public void RefillMana() {
