@@ -7,12 +7,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -20,20 +16,8 @@
    <children>
       <VBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox fx:id="hbox" alignment="CENTER" prefHeight="551.0" prefWidth="1280.0">
+            <HBox alignment="CENTER" prefHeight="551.0" prefWidth="1280.0">
                <children>
-                  <GridPane>
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                  </GridPane>
-                  <Region fx:id="region1" prefHeight="200.0" prefWidth="200.0" />
                   <Pane fx:id="imagePane" prefHeight="144.0" prefWidth="600.0">
                      <children>
                         <ImageView fx:id="image" fitHeight="468.0" fitWidth="1047.0" layoutX="-82.0" pickOnBounds="true" preserveRatio="true">
@@ -88,16 +72,6 @@
                         <Label fx:id="monsterName" layoutX="82.0" layoutY="378.0" text="monster_name" />
                      </children>
                   </Pane>
-                  <Region fx:id="region2" prefHeight="200.0" prefWidth="200.0" />
-                  <GridPane fx:id="inventoryPane" alignment="CENTER">
-                    <columnConstraints>
-                      <ColumnConstraints />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                  </GridPane>
                </children>
             </HBox>
             <Label fx:id="promptLabel" alignment="CENTER" prefHeight="60.0" prefWidth="400.0" text="text" textAlignment="CENTER" />
@@ -112,44 +86,13 @@
             <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="65.0" visible="false" />
             <HBox alignment="CENTER" prefHeight="349.0" prefWidth="1280.0">
                <children>
-                  <GridPane alignment="CENTER" maxHeight="150.0" minHeight="150.0">
-                    <columnConstraints>
-                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="140.0" />
-                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="40.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label fx:id="strengthLabel" text="0" GridPane.columnIndex="1" />
-                        <Label fx:id="perceptionLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <Label fx:id="enduranceLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <Label fx:id="charismaLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Label fx:id="intelligenceLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                        <Label fx:id="agilityLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                        <Label fx:id="luckLabel" text="0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                        <Label text="Strength:" />
-                        <Label text="Perception:" GridPane.rowIndex="1" />
-                        <Label text="Endurance:" GridPane.rowIndex="2" />
-                        <Label text="Charisma:" GridPane.rowIndex="3" />
-                        <Label text="Intelligence:" GridPane.rowIndex="4" />
-                        <Label text="Agility:" GridPane.rowIndex="5" />
-                        <Label text="Luck:" GridPane.rowIndex="6" />
-                     </children>
-                  </GridPane>
                   <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0">
                      <children>
                         <Label fx:id="playerGoldLabel" text="gold" textAlignment="CENTER" />
                         <ProgressBar fx:id="levelProgressBar" prefWidth="200.0" progress="0.0" />
                         <Label text="0/10" textAlignment="CENTER" fx:id="xpLabel" />
                         <Label fx:id="levelLabel" text="Level: 1" textAlignment="CENTER" />
-                        <Button mnemonicParsing="false" onAction="#ToggleInventory" text="Inventory" />
+                        <Button mnemonicParsing="false" onAction="#OpenInventory" text="Inventory" />
                         <Button mnemonicParsing="false" onAction="#QuitButtonPressed" text="Quit" />
                      </children>
                   </VBox>
@@ -170,7 +113,7 @@
                               <Image url="@resources/sprites/UI/health.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="playerHealthLabel" alignment="CENTER" layoutX="165.0" layoutY="203.0" prefHeight="35.0" prefWidth="39.0" text="0" textAlignment="CENTER">
+                        <Label fx:id="playerHealthLabel" alignment="CENTER" layoutX="167.0" layoutY="203.0" prefHeight="35.0" prefWidth="39.0" text="0" textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -182,39 +125,13 @@
                         </Label>
                      </children>
                   </Pane>
-                  <HBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label text="Left hand" />
-                              <ImageView fx:id="leftHandImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label text="Right hand" />
-                              <ImageView fx:id="rightHandImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                           </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <ImageView fx:id="helmetImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="armorImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="bootsImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                           </children></VBox>
+                        <Button mnemonicParsing="false" onAction="#HeroPowerButton" text="Button" />
+                        <Label fx:id="manaLabel" text="Label" />
+                        <ProgressBar fx:id="manaBar" prefWidth="200.0" progress="0.0" />
                      </children>
                   </HBox>
-                  <GridPane>
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="40.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="140.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                  </GridPane>
                </children>
             </HBox>
          </children>
