@@ -81,6 +81,13 @@ public class CombatManager {
             damage *= 2;
         }
 
+        if (Player.instance.shield != null) {
+            if (RNG.PercentageChance(Player.instance.shield.blockChance)) {
+                System.out.println("Blocked the attack with your shield!");
+                return;
+            }
+        }
+
         Player.instance.TakeDamage(damage);
 
         if (monster.ability == Monster.Ability.Lifesteal) {
