@@ -23,7 +23,7 @@ public class MonsterFactory {
 
         for (Monster monster : scriptedMonsters) {
             if (monster.name.equals(name)) {
-                return new Monster(monster.name, monster.damage, monster.health, monster.ability);
+                return Stats.GenerateMonsterStats(new Monster(monster.name, monster.damage, monster.health, monster.ability));
             }
         }
 
@@ -35,7 +35,7 @@ public class MonsterFactory {
 
         Random random = new Random();
         Monster monster = monsters.get(random.nextInt(monsters.size()));
-        return new Monster(monster.name, monster.damage, monster.health, monster.ability);
+        return Stats.GenerateMonsterStats(new Monster(monster.name, monster.damage, monster.health, monster.ability));
 
     }
 
@@ -43,7 +43,7 @@ public class MonsterFactory {
 
         Random random = new Random();
         Monster monster = bosses.get(random.nextInt(bosses.size()));
-        return new Monster(monster.name, monster.damage, monster.health, monster.ability);
+        return Stats.GenerateMonsterStats(new Monster(monster.name, monster.damage, monster.health, monster.ability));
 
     }
 
