@@ -6,6 +6,8 @@ public class Item {
         this.name = name;
     }
 
-    public void Use() { }
+    public void Use() {
+        Player.instance.inventory.Remove(this);
+    }
 
 }

@@ -22,43 +22,40 @@
          <children>
             <HBox fx:id="hbox" alignment="CENTER" prefHeight="551.0" prefWidth="1280.0">
                <children>
-                  <GridPane>
+                  <GridPane fx:id="pane2" alignment="CENTER">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
                     </columnConstraints>
                     <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
                   <Region fx:id="region1" prefHeight="200.0" prefWidth="200.0" />
-                  <Pane fx:id="imagePane" prefHeight="144.0" prefWidth="600.0">
+                  <Pane fx:id="imagePane" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="600.0">
                      <children>
-                        <ImageView fx:id="image" fitHeight="468.0" fitWidth="1047.0" layoutX="-82.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="image" fitHeight="468.0" fitWidth="1047.0" layoutX="-74.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/sprites/dungeon/room.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="doorForward" fitHeight="60.0" fitWidth="69.0" layoutX="262.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="doorForward" fitHeight="60.0" fitWidth="69.0" layoutX="270.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/sprites/dungeon/door_forward.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="doorLeft" fitHeight="76.0" fitWidth="81.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="doorLeft" fitHeight="80.0" fitWidth="83.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/sprites/dungeon/door_forward.png" />
                            </image>
                         </ImageView>
-                        <ImageView fx:id="doorRight" fitHeight="80.0" fitWidth="83.0" layoutX="506.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="doorRight" fitHeight="80.0" fitWidth="83.0" layoutX="520.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/sprites/dungeon/door_forward.png" />
                            </image>
                         </ImageView>
                      </children>
                   </Pane>
-                  <Pane fx:id="monsterPane">
+                  <Pane fx:id="monsterPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="244.0">
                      <children>
                         <ImageView fx:id="monsterImage" fitHeight="311.0" fitWidth="200.0" layoutX="21.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -110,7 +107,7 @@
                </children>
             </HBox>
             <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="65.0" visible="false" />
-            <HBox alignment="CENTER" prefHeight="349.0" prefWidth="1280.0">
+            <HBox fx:id="bottomBox" alignment="CENTER" prefHeight="349.0" prefWidth="1280.0">
                <children>
                   <GridPane alignment="CENTER" maxHeight="150.0" minHeight="150.0">
                     <columnConstraints>
@@ -143,7 +140,7 @@
                         <Label text="Luck:" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0">
+                  <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0">
                      <children>
                         <Label fx:id="playerGoldLabel" text="gold" textAlignment="CENTER" />
                         <ProgressBar fx:id="levelProgressBar" prefWidth="200.0" progress="0.0" />
@@ -153,9 +150,9 @@
                         <Button mnemonicParsing="false" onAction="#QuitButtonPressed" text="Quit" />
                      </children>
                   </VBox>
-                  <Pane fx:id="playerPane" prefHeight="200.0" prefWidth="200.0">
+                  <Pane fx:id="playerPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="181.0">
                      <children>
-                        <ImageView fx:id="playerImage" fitHeight="233.0" fitWidth="196.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="playerImage" fitHeight="233.0" fitWidth="196.0" layoutX="-6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/sprites/heroes/mage.png" />
                            </image>
@@ -165,12 +162,12 @@
                               <Image url="@resources/sprites/UI/attack.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="80.0" fitWidth="66.0" layoutX="157.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="80.0" fitWidth="66.0" layoutX="151.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@resources/sprites/UI/health.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="playerHealthLabel" alignment="CENTER" layoutX="165.0" layoutY="203.0" prefHeight="35.0" prefWidth="39.0" text="0" textAlignment="CENTER">
+                        <Label fx:id="playerHealthLabel" alignment="CENTER" layoutX="159.0" layoutY="203.0" prefHeight="35.0" prefWidth="39.0" text="0" textAlignment="CENTER">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -182,29 +179,51 @@
                         </Label>
                      </children>
                   </Pane>
-                  <HBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0">
+                  <HBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0">
                      <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <Separator prefHeight="81.0" prefWidth="113.0" visible="false" />
+                        <VBox alignment="CENTER" prefHeight="280.0" prefWidth="100.0">
                            <children>
                               <Label text="Left hand" />
-                              <ImageView fx:id="leftHandImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="leftHandImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/sprites/slot.png" />
+                                 </image></ImageView>
+                              <Label />
                            </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Separator orientation="VERTICAL" prefHeight="16.0" visible="false" />
+                              <ImageView fx:id="helmetImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/sprites/slot.png" />
+                                 </image></ImageView>
+                              <Separator orientation="VERTICAL" prefHeight="15.0" prefWidth="27.0" visible="false" />
+                              <ImageView fx:id="armorImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/sprites/slot.png" />
+                                 </image></ImageView>
+                              <Separator orientation="VERTICAL" prefHeight="15.0" prefWidth="19.0" visible="false" />
+                              <ImageView fx:id="bootsImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/sprites/slot.png" />
+                                 </image></ImageView>
+                              <Separator orientation="VERTICAL" prefHeight="16.0" visible="false" />
+                           </children></VBox>
+                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <Label text="Right hand" />
-                              <ImageView fx:id="rightHandImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="rightHandImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@resources/sprites/slot.png" />
+                                 </image></ImageView>
+                              <Label />
                            </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <ImageView fx:id="helmetImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="armorImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                              <ImageView fx:id="bootsImage" fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true" />
-                           </children></VBox>
                      </children>
                   </HBox>
-                  <GridPane>
+                  <GridPane maxHeight="150.0" minHeight="150.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="40.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="140.0" minWidth="10.0" prefWidth="140.0" />
@@ -213,6 +232,10 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                   </GridPane>
                </children>

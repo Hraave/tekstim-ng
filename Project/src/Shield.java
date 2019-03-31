@@ -8,6 +8,7 @@ public class Shield extends Item {
     }
 
     public void Use() {
+        super.Use();
         Player.instance.shield = this;
         Controller.instance.SetSlotImage(this);
     }

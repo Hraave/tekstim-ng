@@ -2,3 +2,4 @@ Voidwalker 1 3
 Phantom_Militia 2 4
 Astral_Tiger 3 5
 Wyrmrest_Agent 1 4
+Ironfur_Grizzly 3 3

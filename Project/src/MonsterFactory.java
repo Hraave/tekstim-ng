@@ -9,19 +9,17 @@ public class MonsterFactory {
 
     private static List<Monster> monsters;
     private static List<Monster> bosses;
-    private static List<Monster> scriptedMonsters;
 
     public static void Setup() {
 
         monsters = TextFileToMonsterList("monsters.txt");
         bosses = TextFileToMonsterList("monsters_bosses.txt");
-        scriptedMonsters = TextFileToMonsterList("monsters_scripted.txt");
 
     }
 
     public static Monster GetMonster(String name) {
 
-        for (Monster monster : scriptedMonsters) {
+        for (Monster monster : monsters) {
             if (monster.name.equals(name)) {
                 return Stats.GenerateMonsterStats(new Monster(monster.name, monster.damage, monster.health, monster.ability));
             }

@@ -1,6 +1,6 @@
 public class CombatManager {
 
-    private static Monster monster;
+    public static Monster monster;
     private static Room room;
 
     public static void StartBattle(Monster m) {
@@ -17,12 +17,12 @@ public class CombatManager {
     private static void Start() {
         Sound.PlaySound("monsters/" + monster.name + "/play", false);
         Controller.instance.StartBattle(monster);
-        BattleLoop();
+        //BattleLoop();
     }
 
-    private static void BattleLoop() {
+    public static void BattleLoop() {
 
-        Choice root = new Choice("Battle: " + monster.name + "\nHealth: " + monster.health + "/" + monster.maxHealth);
+        Choice root = new Choice("");
         Choice attack = root.AddChoice("Attack");
 
         attack.SetAction(() -> {
@@ -34,8 +34,8 @@ public class CombatManager {
                 return;
             }
 
-            AttackPlayer();
-            BattleLoop();
+            //AttackPlayer();
+            //BattleLoop();
 
         });
 
@@ -54,6 +54,7 @@ public class CombatManager {
 
         if (RNG.PercentageChance(weapon.critChance)) {
             System.out.println("Critical hit! Double damage.");
+            Controller.instance.DisplayMessage("CRITICAL HIT");
             damage *= 2;
         }
 
@@ -63,27 +64,29 @@ public class CombatManager {
 
     }
 
-    private static void AttackPlayer() {
+    public static void AttackPlayer() {
 
         if (monster.ability == Monster.Ability.Regeneration) {
             monster.GainHealth(monster.maxHealth / 2);
             Controller.instance.MonsterRegenAnimation();
         }
 
-        Sound.PlaySound("monsters/" + monster.name + "/attack", false);
-        Controller.instance.MonsterAttackAnimation();
+        //Sound.PlaySound("monsters/" + monster.name + "/attack", false);
+        //Controller.instance.MonsterAttackAnimation();
         Sound.PlaySound("hitsound", false);
 
         int damage = monster.damage;
 
         if (RNG.PercentageChance(2)) {
             System.out.println("Critical hit! Double damage.");
+            Controller.instance.DisplayMessage("CRITICAL HIT");
             damage *= 2;
         }
 
         if (Player.instance.shield != null) {
             if (RNG.PercentageChance(Player.instance.shield.blockChance)) {
                 System.out.println("Blocked the attack with your shield!");
+                Controller.instance.ShieldBlock();
                 return;
             }
         }

@@ -23,7 +23,7 @@ public class Game {
         proceed.SetAction(() -> {
             Encounter encounter = new Encounter();
             encounter.GenerateRandom(Encounter.Type.PATH);
-            encounter.Call();
+            encounter.PathEncounter();
         });
 
         root.Display();

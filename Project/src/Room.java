@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Room {
 
-    private static final int maxNumberOfMonsters = 0;
+    private static final int maxNumberOfMonsters = 1;
 
     public int x;
     public int y;
@@ -66,12 +66,20 @@ public class Room {
         if (hasBeenVisited) {
 
             if (containsBossKey) {
-                System.out.println("You found the boss key!");
-                Player.instance.inventory.Add(new Key("Boss Key"));
+                Choice root = new Choice("You found the boss key");
+                Choice take = root.AddChoice("Take it");
+                take.SetAction(() -> {
+                    Player.instance.inventory.Add(new Key("Boss Key"));
+                    containsBossKey = false;
+                    Enter();
+                });
+                root.SetImage("inventory/boss_key.png");
+                root.Display();
+                return;
             }
 
-            encounter.Call();
-            dungeon.PromptToMove();
+            Choice choice = encounter.DungeonEncounter();
+            dungeon.PromptToMove(choice);
         }
 
     }

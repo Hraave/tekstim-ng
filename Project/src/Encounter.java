@@ -4,15 +4,13 @@ public class Encounter {
 
     public enum Type { PATH, DUNGEON }
 
-    private static final int pathEncounterAmount = 3;
+    private static final int pathEncounterAmount = 4;
     private static final int dungeonEncounterAmount = 1;
 
-    private Type type;
     private int encounterNumber;
 
     public void GenerateRandom(Type type) {
 
-        this.type = type;
         int random = 0;
         if (type == Type.PATH) {
             random = RNG.RandomInRange(1, pathEncounterAmount);
@@ -23,40 +21,44 @@ public class Encounter {
 
     }
 
-    public void Call() {
+    public void PathEncounter() {
 
-        if (type == Type.PATH) {
-
-            switch (encounterNumber) {
-                case 1: MonsterEncounter();
-                    break;
-                case 2: DungeonEncounter();
-                    break;
-                case 3: FindingItem();
-                    break;
-            }
-
-        } else if (type == Type.DUNGEON) {
-
-            switch (encounterNumber) {
-                case 1: Chest();
-                    break;
-            }
-
+        switch (encounterNumber) {
+            case 1:
+                Monster();
+                break;
+            case 2:
+                Dungeon();
+                break;
+            case 3:
+                FindingItem();
+                break;
+            case 4:
+                BearCave();
+                break;
         }
 
     }
 
+    public Choice DungeonEncounter() {
+
+        switch (encounterNumber) {
+            case 1: return Chest();
+        }
+
+        return null;
+    }
+
     ///////////////////////////////////////////////////// PATH ENCOUNTERS /////////////////////////////////////////////////////
 
-    private void MonsterEncounter() {
+    private void Monster() {
 
         Monster monster = MonsterFactory.GetRandomMonster();
         CombatManager.StartBattle(monster);
 
     }
 
-    private void DungeonEncounter() {
+    private void Dungeon() {
 
         Dungeon dungeon = new Dungeon();
         dungeon.Generate();
@@ -77,13 +79,12 @@ public class Encounter {
 
     private void FindingItem() {
 
-        /*
-
         Weapon weapon = Stats.GenerateRandomWeapon();
         Shield shield = Stats.GenerateRandomShield();
         Armor armor = Stats.GenerateRandomArmor();
+        Potion potion = new Potion("Health Potion");
 
-        Item[] itemList = new Item[] {weapon, shield, armor};
+        Item[] itemList = new Item[] {weapon, shield, armor, potion};
 
         Random random = new Random();
         Item item = itemList[random.nextInt(itemList.length)];
@@ -100,16 +101,22 @@ public class Encounter {
 
         String path = "";
         if (item instanceof Weapon) {
-            path = "inventory/weapons/";
+            path = "weapons/";
         } else if (item instanceof Shield) {
             path = "shields/";
         } else if (item instanceof Armor) {
-            path = "armor/";
+            if (((Armor) item).type == Armor.Type.Helmet) {
+                path = "helmets/";
+            } else if (((Armor) item).type == Armor.Type.Chestplate) {
+                path = "chestplates/";
+            } else if (((Armor) item).type == Armor.Type.Boots) {
+                path = "boots/";
+            }
+        } else if (item instanceof Potion) {
+            path = "potion/";
         }
         root.SetImage("inventory/" + path + item.name.replaceAll(" ", "_").toLowerCase() + ".png");
         root.Display();
-
-        */
 
     }
 
@@ -121,9 +128,11 @@ public class Encounter {
 
         enter.SetAction(() -> {
             System.out.println("A bear comes out to attack you!");
-            Monster monster = MonsterFactory.GetRandomMonster();
+            Monster monster = MonsterFactory.GetMonster("Ironfur Grizzly");
             CombatManager.StartBattle(monster);
         });
+
+        root.Display();
 
     }
 
@@ -139,7 +148,7 @@ public class Encounter {
             if (RNG.PercentageChance(50)) {
 
                 System.out.println("A monster comes out of it!");
-                MonsterEncounter();
+                Monster();
 
             } else {
                 System.out.println("It's empty");
@@ -150,15 +159,15 @@ public class Encounter {
 
     }
 
-    private void Chest() {
+    private Choice Chest() {
 
         Choice openChest = new Choice("Open the chest");
 
         openChest.SetAction(() -> {
             System.out.println("It's empty");
-
         });
 
+        return openChest;
     }
 
 }

@@ -11,7 +11,7 @@ public class Dungeon {
     private Room currentRoom;
     private Direction playerFacingDirection = Direction.UP;
 
-    private static final int minNumberOfRooms = 2;
+    private static final int minNumberOfRooms = 3;
     private static final int maxNumberOfRooms = 5;
 
     public void Generate() {
@@ -75,14 +75,15 @@ public class Dungeon {
 
         }
 
-        ////////////////// Add Boss Room Key to a random room //////////////////
+        ////////////////// Add boss room key to a random room //////////////////
 
-        List<Room> nonBossRooms = rooms.stream()
+        List<Room> notBossOrFirstRooms = rooms.stream()
                 .filter(room -> !room.isBossRoom)
+                .filter(room -> room != rooms.get(0))
                 .collect(Collectors.toList());
 
         Random random = new Random();
-        Room randomRoom = nonBossRooms.get(random.nextInt(nonBossRooms.size()));
+        Room randomRoom = notBossOrFirstRooms.get(random.nextInt(notBossOrFirstRooms.size()));
         randomRoom.containsBossKey = true;
 
     }
@@ -90,21 +91,17 @@ public class Dungeon {
     public void Enter() {
 
         System.out.println("You enter the dungeon");
-        currentRoom = rooms.get(0);
-        rooms.get(0).Enter();
+        EnterRoom(rooms.get(0));
 
     }
 
-    public void PromptToMove() {
+    public void PromptToMove(Choice choice) {
 
-        System.out.println("-----------------");
-        System.out.println("Displaying coordinates of each room");
+        /*
         for (Room room : rooms) {
-            System.out.println("-----------------");
             System.out.println(room.x + ", " + room.y);
         }
-        System.out.println("-----------------");
-
+        */
 
         Choice root = new Choice(" ");
 
@@ -150,6 +147,12 @@ public class Dungeon {
         left.SetAction(() -> Move(Direction.LEFT));
         forward.SetAction(() -> Move(Direction.UP));
         back.SetAction(() -> Move(Direction.DOWN));
+
+
+        if (choice != null) {
+            root.AddChoice(choice);
+        }
+
 
         root.Display();
 
@@ -279,7 +282,7 @@ public class Dungeon {
             y--;
         }
 
-        playerFacingDirection = direction;
+        //playerFacingDirection = direction;
 
         for (Room room : rooms) {
             if (room.x == x && room.y == y) {
@@ -288,14 +291,17 @@ public class Dungeon {
                 if (room.isBossRoom) {
                     for (Item item : Player.instance.inventory.items) {
                         if (item.name.equals("Boss Key")) {
+                            Player.instance.inventory.Remove(item);
+                            playerFacingDirection = direction;
                             EnterRoom(room);
                             return;
                         }
                     }
-                    System.out.println("You don't have a boss key!");
-                    PromptToMove();
+                    Controller.instance.DisplayMessage("You need the\nboss key");
+                    PromptToMove(null);
                     return;
                 } else {
+                    playerFacingDirection = direction;
                     EnterRoom(room);
                 }
 

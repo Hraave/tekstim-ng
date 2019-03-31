@@ -10,6 +10,7 @@ public class Weapon extends Item {
     }
 
     public void Use() {
+        super.Use();
         Player.instance.SetEquippedWeapon(this);
         Controller.instance.SetSlotImage(this);
     }

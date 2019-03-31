@@ -23,7 +23,7 @@ public class Player extends Character {
     private Weapon equippedWeapon;
     public Weapon GetEquippedWeapon() {
         if (equippedWeapon == null) {
-            return new Weapon("Fists", 1, 1);
+            return new Weapon("Fists", strength / 2, luck);
         }
         return equippedWeapon;
     }
@@ -40,7 +40,7 @@ public class Player extends Character {
     public static Player instance;
 
     public Player(String name, int strength, int perception, int endurance, int charisma, int intelligence, int agility, int luck) {
-        super(name, 30);
+        super(name, endurance * 5);
         this.strength = strength;
         this.perception = perception;
         this.endurance = endurance;
@@ -59,6 +59,7 @@ public class Player extends Character {
             xp -= requiredXP;
             level++;
             requiredXP = level * 10;
+            Sound.PlaySound("levelup", false);
         }
         Controller.instance.DisplayStats();
     }
@@ -89,8 +90,8 @@ public class Player extends Character {
 
     @Override
     public void Die() {
+        super.Die();
         Controller.instance.PlayerDeath();
-        Sound.PlaySound("You Died", false);
     }
 
 }

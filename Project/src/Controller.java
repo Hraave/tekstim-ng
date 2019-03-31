@@ -1,10 +1,15 @@
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.stage.Screen;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
@@ -72,6 +77,12 @@ public class Controller {
     ////
 
     @FXML
+    HBox bottomBox;
+
+    @FXML
+    GridPane pane2;
+
+    @FXML
     HBox hBox;
     @FXML
     Region region1;
@@ -127,16 +138,34 @@ public class Controller {
         String style = "-fx-background-color: rgba(255, 255, 255, 0.5);";
         inventoryPane.setStyle(style);
 
-        //inventoryPane.setPrefSize(50 * Inventory.columns, 50 * Inventory.rows);
-        //inventoryPane.setMinSize(50 * Inventory.columns, 50 * Inventory.rows);
+        screenPane.setBackground(GetBackground("road.png"));
+        bottomBox.setBackground(GetBackground("background2.png"));
+
+
+        Pane pane = new Pane();
+        pane.setBackground(GetBackground("background2.png"));
+        screenPane.getChildren().add(pane);
+        pane.setMinHeight(540);
+        pane.setPrefHeight(540);
+        pane.setMaxHeight(540);
+        pane.setMinWidth(400);
+        pane.setPrefWidth(400);
+        pane.setMaxWidth(400);
+        pane.setLayoutX(Screen.getPrimary().getBounds().getWidth() / 2 - 200);
+        pane.setLayoutY(Screen.getPrimary().getBounds().getHeight() - 540);
+        pane.toBack();
+
+
 
         for (int i = 0; i < Inventory.columns; i++) {
             ColumnConstraints column = new ColumnConstraints(50);
             inventoryPane.getColumnConstraints().add(column);
+            pane2.getColumnConstraints().add(column);
         }
         for (int i = 0; i < Inventory.rows; i++) {
             RowConstraints row = new RowConstraints(50);
             inventoryPane.getRowConstraints().add(row);
+            pane2.getRowConstraints().add(row);
         }
 
         hBox.setHgrow(region1, Priority.ALWAYS);
@@ -165,74 +194,93 @@ public class Controller {
 
     }
 
-    public void HeroPowerButton() {
-
-        Player.instance.UseHeroPower();
-
-    }
-
     public void ToggleInventory() {
-        inventoryPane.getChildren().clear();
         if (inventoryPane.isVisible()) {
             inventoryPane.setVisible(false);
             return;
         }
+        inventoryPane.getChildren().clear();
+
+        Player player = Player.instance;
 
         inventoryPane.setVisible(true);
 
         int column = 0;
         int row = 0;
-        for (Item item : Player.instance.inventory.items) {
+        for (Item item : player.inventory.items) {
 
-            String name = item.name;
+            ImageView image = new ImageView();
+            image.setFitWidth(50);
+            image.setFitHeight(50);
+
+            String path = "";
             if (item instanceof Weapon) {
-                name = item.name + "\nDamage: " + ((Weapon) item).damage + "\nCrit chance: " + ((Weapon) item).critChance;
+                path = "weapons/";
+            } else if (item instanceof Shield) {
+                path = "shields/";
+            } else if (item instanceof Armor) {
+                if (((Armor) item).type == Armor.Type.Helmet) {
+                    path = "helmets/";
+                } else if (((Armor) item).type == Armor.Type.Chestplate) {
+                    path = "chestplates/";
+                } else if (((Armor) item).type == Armor.Type.Boots) {
+                    path = "boots/";
+                }
+            } else if (item instanceof Potion) {
+                path = "potion/";
             }
+            SetImage(image, "inventory/" + path + item.name.replaceAll(" ", "_").toLowerCase() + ".png");
 
-            Button invButton = new Button();
-            invButton.setPrefWidth(50);
-            invButton.setPrefHeight(50);
-
-            ImageView buttonImage = new ImageView();
-            buttonImage.setFitWidth(50);
-            buttonImage.setFitHeight(50);
-            SetImage(buttonImage, "inventory/weapons/" + item.name.replaceAll(" ", "_").toLowerCase() + ".png");
-            invButton.setGraphic(buttonImage);
-
-            Tooltip tooltip = new Tooltip(name);
-
-            invButton.setOnMouseMoved(action -> {
-                tooltip.show(invButton, action.getSceneX() + 30, action.getSceneY() + 30);
-            });
-            invButton.setOnMouseExited(action -> {
-                tooltip.hide();
-            });
-
-            invButton.setOnAction(action -> item.Use());
+            CreateItemTooltip(image, item);
 
             ContextMenu contextMenu = new ContextMenu();
 
             MenuItem use = new MenuItem("Use");
             MenuItem delete = new MenuItem("Delete");
             use.setOnAction(action -> {
+                if (item instanceof Weapon) {
+                    if (!player.GetEquippedWeapon().name.equals("Fists")) {
+                        player.inventory.Add(player.GetEquippedWeapon());
+                    }
+                } else if (item instanceof Shield) {
+                    if (player.shield != null) {
+                        player.inventory.Add(player.shield);
+                    }
+                } else if (item instanceof Armor) {
+                    if (((Armor) item).type == Armor.Type.Helmet) {
+                        if (player.helmet != null) {
+                            player.inventory.Add(player.helmet);
+                        }
+                    } else if (((Armor) item).type == Armor.Type.Chestplate) {
+                        if (player.chestplate != null) {
+                            player.inventory.Add(player.chestplate);
+                        }
+                    } else if (((Armor) item).type == Armor.Type.Boots) {
+                        if (player.boots != null) {
+                            player.inventory.Add(player.boots);
+                        }
+                    }
+                }
+
                 item.Use();
             });
             delete.setOnAction(action -> {
                 Player.instance.inventory.Remove(item);
             });
 
-            if (item instanceof Weapon) {
+            if (item instanceof Weapon || item instanceof Shield || item instanceof Armor || item instanceof Potion) {
                 contextMenu.getItems().add(use);
             }
             if (!(item instanceof Key)) {
                 contextMenu.getItems().add(delete);
             }
 
-            invButton.setOnContextMenuRequested(action -> {
-                contextMenu.show(invButton, action.getScreenX(), action.getScreenY());
+
+            image.setOnContextMenuRequested(action -> {
+                contextMenu.show(image, action.getScreenX(), action.getScreenY());
             });
 
-            inventoryPane.add(invButton, column, row);
+            inventoryPane.add(image, column, row);
 
             column++;
 
@@ -248,24 +296,146 @@ public class Controller {
     public void SetSlotImage(Item item) {
         String name = item.name.replaceAll(" ", "_").toLowerCase() + ".png";
 
+        Sound.PlaySound("equip", false);
+
         if (item instanceof Weapon) {
+
             SetImage(rightHandImage, "inventory/weapons/" + name);
+            CreateItemTooltip(rightHandImage, item);
+
+            MenuItem unequipButton = AddUnequipButton(rightHandImage);
+            unequipButton.setOnAction(action -> {
+                Player.instance.SetEquippedWeapon(null);
+                Player.instance.inventory.Add(item);
+                rightHandImage.setImage(null);
+                rightHandImage.setOnMouseMoved(null);
+                rightHandImage.setOnMouseExited(null);
+                rightHandImage.setOnContextMenuRequested(null);
+                SetImage(rightHandImage, "slot.png");
+            });
+
         } else if (item instanceof Armor) {
             if (((Armor) item).type == Armor.Type.Helmet) {
-                SetImage(helmetImage, "inventory/armor/" + name);
+
+                SetImage(helmetImage, "inventory/helmets/" + name);
+                CreateItemTooltip(helmetImage, item);
+
+                MenuItem unequipButton = AddUnequipButton(helmetImage);
+                unequipButton.setOnAction(action -> {
+                    Player.instance.helmet = null;
+                    Player.instance.inventory.Add(item);
+                    helmetImage.setImage(null);
+                    helmetImage.setOnMouseMoved(null);
+                    helmetImage.setOnMouseExited(null);
+                    helmetImage.setOnContextMenuRequested(null);
+                    SetImage(helmetImage, "slot.png");
+                });
+
             } else if (((Armor) item).type == Armor.Type.Chestplate) {
-                SetImage(armorImage, "inventory/armor/" + name);
+
+                SetImage(armorImage, "inventory/chestplates/" + name);
+                CreateItemTooltip(armorImage, item);
+
+                MenuItem unequipButton = AddUnequipButton(armorImage);
+                unequipButton.setOnAction(action -> {
+                    Player.instance.chestplate = null;
+                    Player.instance.inventory.Add(item);
+                    armorImage.setImage(null);
+                    armorImage.setOnMouseMoved(null);
+                    armorImage.setOnMouseExited(null);
+                    armorImage.setOnContextMenuRequested(null);
+                    SetImage(armorImage, "slot.png");
+                });
+
             } else if (((Armor) item).type == Armor.Type.Boots) {
-                SetImage(bootsImage, "inventory/armor/" + name);
+
+                SetImage(bootsImage, "inventory/boots/" + name);
+                CreateItemTooltip(bootsImage, item);
+
+                MenuItem unequipButton = AddUnequipButton(bootsImage);
+                unequipButton.setOnAction(action -> {
+                    Player.instance.boots = null;
+                    Player.instance.inventory.Add(item);
+                    bootsImage.setImage(null);
+                    bootsImage.setOnMouseMoved(null);
+                    bootsImage.setOnMouseExited(null);
+                    bootsImage.setOnContextMenuRequested(null);
+                    SetImage(bootsImage, "slot.png");
+                });
+
             }
         } else if (item instanceof Shield) {
+
             SetImage(leftHandImage, "inventory/shields/" + name);
+            CreateItemTooltip(leftHandImage, item);
+
+            MenuItem unequipButton = AddUnequipButton(leftHandImage);
+            unequipButton.setOnAction(action -> {
+                Player.instance.shield = null;
+                Player.instance.inventory.Add(item);
+                leftHandImage.setImage(null);
+                leftHandImage.setOnMouseMoved(null);
+                leftHandImage.setOnMouseExited(null);
+                leftHandImage.setOnContextMenuRequested(null);
+                SetImage(leftHandImage, "slot.png");
+            });
+
         }
+
+    }
+
+    private void CreateItemTooltip(Node node, Item item) {
+
+        String name = item.name;
+        if (item instanceof Weapon) {
+            name = item.name + "\nDamage: " + ((Weapon) item).damage + "\nCrit Chance: " + ((Weapon) item).critChance;
+        } else if (item instanceof Shield) {
+            name = item.name + "\nBlock Chance: " + ((Shield) item).blockChance;
+        } else if (item instanceof Armor) {
+            name = item.name + "\nProtection: 0";
+        } else if (item instanceof Potion) {
+            name = item.name + "\nHeals 5 HP";
+        }
+
+        Tooltip tooltip = new Tooltip(name);
+
+        node.setOnMouseMoved(action -> {
+            tooltip.show(node, action.getSceneX() + 30, action.getSceneY() + 30);
+        });
+        node.setOnMouseExited(action -> {
+            tooltip.hide();
+        });
+    }
+
+    private MenuItem AddUnequipButton(Node node) {
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem unequip = new MenuItem("Unequip");
+
+        contextMenu.getItems().add(unequip);
+
+        node.setOnContextMenuRequested(action -> {
+            contextMenu.show(node, action.getScreenX(), action.getScreenY());
+        });
+        return unequip;
     }
 
     public void PlayerDeath() {
-        screenPane.getChildren().clear();
-        SetBackground("death.png");
+
+        Sound.PlaySound("hero_portrait_crack", false);
+
+        PauseTransition pauseTransition = Pause(1);
+        pauseTransition.setOnFinished(a -> {
+            Sound.PlaySound("hero_portrait_explode", false);
+
+            screenPane.getChildren().clear();
+            Sound.PlaySound("You Died", false);
+            screenPane.setBackground(GetBackground("death.png"));
+            PauseTransition pauseTransition2 = Pause(5);
+            pauseTransition2.setOnFinished(e -> {
+                System.exit(0);
+            });
+
+        });
     }
 
     public void DisplayChoices(Choice root) {
@@ -282,7 +452,7 @@ public class Controller {
             choiceButton.setMinHeight(100);
             choiceButton.setOnAction(action -> {
                 PlayAnimation(choiceButton, 0, 10, 0.1f);
-                Sound.PlaySound("click", false);
+                Sound.PlaySound("choice_click", false);
                 root.MakeSelection(choice);
             });
             choiceButton.setOnMouseEntered(action -> {
@@ -298,8 +468,7 @@ public class Controller {
     }
 
     public void QuitButtonPressed() {
-        //System.exit(0);
-        Player.instance.inventory.Add(new Weapon("Silver Sword", 1, 1));
+        System.exit(0);
     }
 
     public void DisplayImage(String path) {
@@ -316,6 +485,8 @@ public class Controller {
     ///////////////////////////////////////////////////// Dungeon /////////////////////////////////////////////////////
 
     public void EnterRoom() {
+
+        screenPane.setBackground(GetBackground("background.png"));
 
         imagePane.setVisible(true);
         SetImage(image, "dungeon/room.png");
@@ -348,6 +519,8 @@ public class Controller {
     }
 
     public void ExitRoom() {
+
+        screenPane.setBackground(GetBackground("road.png"));
 
         imagePane.setVisible(false);
 
@@ -386,11 +559,9 @@ public class Controller {
 
     //////// Animations ////////
 
-    private TranslateTransition transition;
+    private TranslateTransition PlayAnimation(Node node, int x, int y, float duration) {
 
-    private void PlayAnimation(Node node, int x, int y, float duration) {
-
-        transition = new TranslateTransition();
+        TranslateTransition transition = new TranslateTransition();
         transition.setDuration(Duration.seconds(duration));
 
         transition.setToX(x);
@@ -398,42 +569,105 @@ public class Controller {
         transition.setNode(node);
         transition.play();
 
+        return transition;
+
+    }
+
+    private PauseTransition Pause(float duration) {
+
+        PauseTransition pauseTransition = new PauseTransition(Duration.seconds(duration));
+
+        pauseTransition.play();
+
+        return pauseTransition;
+
     }
 
     public void PlayerAttackAnimation() {
 
-        PlayAnimation(playerPane, 0, -300, 0.1f);
+        DisableChoiceButtons(true);
+
+        TranslateTransition transition = PlayAnimation(playerPane, 0, -300, 0.1f);
         transition.setOnFinished(e -> {
-            PlayAnimation(playerPane, 0, 0, 0.5f);
+            TranslateTransition transition2 = PlayAnimation(playerPane, 0, 0, 0.5f);
+            transition2.setOnFinished(a -> {
+                if (CombatManager.monster.isAlive) {
+                    PauseTransition pauseTransition = Pause(0.3f);
+                    pauseTransition.setOnFinished(o -> {
+                        //CombatManager.AttackPlayer();
+                        CombatManager.BattleLoop();
+                        MonsterAttackAnimation();
+                    });
+                }
+            });
         });
-
-
-
-
-        //pause here
-
-
-
-
-
-
 
     }
 
     public void MonsterAppearAnimation() {
 
+        DisableChoiceButtons(true);
+
         monsterPane.setTranslateY(monsterPane.getTranslateY()-300);
 
-        PlayAnimation(monsterPane, 0, 0, 1f);
+        TranslateTransition transition = PlayAnimation(monsterPane, 0, 0, 1f);
+        transition.setOnFinished(a -> {
+            CombatManager.BattleLoop();
+            DisableChoiceButtons(false);
+        });
 
     }
 
     public void MonsterAttackAnimation() {
 
-        PlayAnimation(monsterPane, 0, 300, 0.1f);
-        transition.setOnFinished(e -> {
-            PlayAnimation(monsterPane, 0, 0, 0.5f);
+        DisableChoiceButtons(true);
+
+        Sound.PlaySound("monsters/" + CombatManager.monster.name + "/attack", false);
+        PauseTransition pauseTransition = Pause(0.5f);
+        pauseTransition.setOnFinished(a -> {
+
+            TranslateTransition transition = PlayAnimation(monsterPane, 0, 300, 0.1f);
+            transition.setOnFinished(e -> {
+                TranslateTransition transition2 = PlayAnimation(monsterPane, 0, 0, 0.5f);
+                CombatManager.AttackPlayer();
+                transition2.setOnFinished(o -> {
+                    if (Player.instance.isAlive) {
+                        DisableChoiceButtons(false);
+                    }
+                });
+            });
+
         });
+
+    }
+
+    private void DisableChoiceButtons(boolean a) {
+        for (Node node : choiceBox.getChildren()) {
+            node.setDisable(a);
+            node.setVisible(!a);
+        }
+    }
+
+    public void DisplayMessage(String text) {
+        Sound.PlaySound("critical_hit", false);
+
+        Label label = new Label(text);
+        label.setTextFill(Color.rgb(250, 0, 0));
+        label.setFont(new Font(25));
+        label.setStyle("-fx-font-weight: bold");
+        playerPane.getChildren().add(label);
+        label.setLayoutX(playerPane.getWidth() / 2);
+        label.setLayoutX(playerPane.getHeight() / 2);
+
+        PauseTransition pauseTransition = Pause(2);
+        pauseTransition.setOnFinished(a -> {
+            playerPane.getChildren().remove(label);
+        });
+
+    }
+
+    public void ShieldBlock() {
+        Sound.PlaySound("block", false);
 
     }
 
@@ -449,29 +683,26 @@ public class Controller {
 
     private void SetImage(ImageView imageView, String filePath) {
         try {
-
             FileInputStream inputStream = new FileInputStream("src/resources/sprites/" + filePath);
             Image image = new Image(inputStream);
             imageView.setImage(image);
-
         } catch (FileNotFoundException e) {
             System.out.println("An image is missing");
             e.printStackTrace();
         }
     }
 
-    private void SetBackground(String filePath) {
+    private Background GetBackground(String filePath) {
         try {
-
             FileInputStream inputStream = new FileInputStream("src/resources/sprites/" + filePath);
             Image image = new Image(inputStream);
             BackgroundImage background = new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
-            screenPane.setBackground(new Background(background));
-
+            return new Background(background);
         } catch (FileNotFoundException e) {
             System.out.println("Background image is missing");
             e.printStackTrace();
         }
+        return null;
     }
 
 }

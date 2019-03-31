@@ -15,11 +15,15 @@ public class BossRoom extends Room {
     @Override
     public void Enter() {
 
+        Controller.instance.EnterRoom();
+        Controller.instance.imagePane.setVisible(false);
+
         if (!hasBeenVisited) {
-            CombatManager.StartBattle(boss);
+            CombatManager.StartBattle(boss, this);
         }
 
         if (hasBeenVisited) {
+            Controller.instance.ExitRoom();
             Game.instance.NewEncounter();
         }
 

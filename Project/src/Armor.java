@@ -16,6 +16,7 @@ public class Armor extends Item {
     }
 
     public void Use() {
+        super.Use();
 
         if (type == Type.Helmet) {
             Player.instance.helmet = this;
