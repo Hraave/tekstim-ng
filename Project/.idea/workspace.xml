@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f0f6de-7d42-456c-8f69-7b8e071704af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/resources/sounds/hero_portrait_explode.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sounds/hero_portrait_explode.wav" afterDir="false" />
-    </list>
+    <list default="true" id="f2f0f6de-7d42-456c-8f69-7b8e071704af" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
