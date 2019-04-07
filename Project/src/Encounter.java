@@ -39,6 +39,9 @@ public class Encounter {
             case 5:
                 Bonfire();
                 break;
+            case 6:
+                Thief();
+                break;
         }
 
     }
@@ -142,6 +145,27 @@ public class Encounter {
         });
 
         root.SetBackground("cave.png");
+        root.Display();
+
+    }
+
+    private void Thief() {
+
+        Choice root = new Choice("You see a thieve's guild on the road");
+        Choice enter = root.AddChoice("Enter");
+        Choice leave = root.AddChoice("Leave");
+
+        enter.SetAction(() -> {
+            if (RNG.PercentageChance(50)) {
+                System.out.println("A thief comes to attack you!");
+                Monster monster = MonsterFactory.GetMonster("Thief");
+                CombatManager.StartBattle(monster);
+            } else {
+                FindingItem();
+            }
+        });
+
+        root.SetBackground("thief_house.png");
         root.Display();
 
     }
