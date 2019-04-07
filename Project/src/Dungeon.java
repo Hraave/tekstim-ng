@@ -14,6 +14,8 @@ public class Dungeon {
     private static final int minNumberOfRooms = 3;
     private static final int maxNumberOfRooms = 5;
 
+    public static boolean playerIsInDungeon;
+
     public void Generate() {
 
         ////////////////// Generate entrance room //////////////////
@@ -90,7 +92,9 @@ public class Dungeon {
 
     public void Enter() {
 
-        System.out.println("You enter the dungeon");
+        playerIsInDungeon = true;
+
+        Sound.PlayMusic("Conquer_song");
         EnterRoom(rooms.get(0));
 
     }
@@ -105,21 +109,14 @@ public class Dungeon {
 
         Choice root = new Choice(" ");
 
-        Choice right = new Choice("Go right");
         Choice left = new Choice("Go left");
         Choice forward = new Choice("Go forward");
         Choice back = new Choice("Go back");
+        Choice right = new Choice("Go right");
 
         Controller.instance.EnterRoom();
 
         for (Room room : rooms) {
-            if (room.x == currentRoom.x + 1 && room.y == currentRoom.y) {
-                /*
-                root.AddChoice(right);
-                Controller.instance.DisplayDoor(Direction.RIGHT, room.isBossRoom);
-                */
-                AddDoor(root, right, left, forward, back, Direction.RIGHT, room);
-            }
             if (room.x == currentRoom.x - 1 && room.y == currentRoom.y) {
                 /*
                 root.AddChoice(left);
@@ -140,6 +137,13 @@ public class Dungeon {
                 Controller.instance.DisplayDoor(Direction.DOWN, room.isBossRoom);
                 */
                 AddDoor(root, right, left, forward, back, Direction.DOWN, room);
+            }
+            if (room.x == currentRoom.x + 1 && room.y == currentRoom.y) {
+                /*
+                root.AddChoice(right);
+                Controller.instance.DisplayDoor(Direction.RIGHT, room.isBossRoom);
+                */
+                AddDoor(root, right, left, forward, back, Direction.RIGHT, room);
             }
         }
 
@@ -297,7 +301,7 @@ public class Dungeon {
                             return;
                         }
                     }
-                    Controller.instance.DisplayMessage("You need the\nboss key");
+                    Controller.instance.DisplayMessage("You need the\nboss key", "block");
                     PromptToMove(null);
                     return;
                 } else {

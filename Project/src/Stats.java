@@ -16,7 +16,7 @@ public class Stats {
 
         String name = ItemFactory.GetRandomWeaponName();
         int damage = RNG.RandomInRange(2, 5);
-        int critChance = RNG.RandomInRange(1, 30) * Player.instance.luck;
+        int critChance = RNG.RandomInRange(1, 30);
 
         damage = damage + level * 2;
 

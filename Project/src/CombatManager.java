@@ -15,7 +15,7 @@ public class CombatManager {
     }
 
     private static void Start() {
-        Sound.PlaySound("monsters/" + monster.name + "/play", false);
+        Sound.PlaySound("monsters/" + monster.name + "/play");
         Controller.instance.StartBattle(monster);
         //BattleLoop();
     }
@@ -46,7 +46,7 @@ public class CombatManager {
     private static void AttackMonster() {
 
         Controller.instance.PlayerAttackAnimation();
-        Sound.PlaySound("hitsound", false);
+        Sound.PlaySound("hitsound");
 
         Weapon weapon = Player.instance.GetEquippedWeapon();
 
@@ -54,7 +54,7 @@ public class CombatManager {
 
         if (RNG.PercentageChance(weapon.critChance)) {
             System.out.println("Critical hit! Double damage.");
-            Controller.instance.DisplayMessage("CRITICAL HIT");
+            Controller.instance.DisplayMessage("CRITICAL HIT", "critical_hit");
             damage *= 2;
         }
 
@@ -68,18 +68,18 @@ public class CombatManager {
 
         if (monster.ability == Monster.Ability.Regeneration) {
             monster.GainHealth(monster.maxHealth / 2);
-            Controller.instance.MonsterRegenAnimation();
+            //Controller.instance.MonsterRegenAnimation();
         }
 
         //Sound.PlaySound("monsters/" + monster.name + "/attack", false);
         //Controller.instance.MonsterAttackAnimation();
-        Sound.PlaySound("hitsound", false);
+        Sound.PlaySound("hitsound");
 
         int damage = monster.damage;
 
         if (RNG.PercentageChance(2)) {
             System.out.println("Critical hit! Double damage.");
-            Controller.instance.DisplayMessage("CRITICAL HIT");
+            Controller.instance.DisplayMessage("CRITICAL HIT", "critical_hit");
             damage *= 2;
         }
 
@@ -105,7 +105,7 @@ public class CombatManager {
         Player.instance.GainXP(monster.maxHealth);
         Player.instance.RefillMana();
 
-        Sound.PlaySound("monsters/" + monster.name + "/death", false);
+        Sound.PlaySound("monsters/" + monster.name + "/death");
         if (monster.ability == Monster.Ability.Deathrattle) {
             Monster newMonster = new Monster(" ", 1, 1, null);
             if (monster.name.equals("Splitting Festeroot")) {
@@ -114,7 +114,7 @@ public class CombatManager {
                 newMonster = MonsterFactory.GetMonster("Woodchip");
             }
             CombatManager.StartBattle(newMonster);
-            Controller.instance.DeathrattleAnimation();
+            //Controller.instance.DeathrattleAnimation();
         } else if (room != null) {
             room.hasBeenVisited = true;
             room.Enter();

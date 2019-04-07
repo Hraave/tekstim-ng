@@ -37,13 +37,18 @@ public class Room {
 
         ////////////////// Generate random encounter //////////////////
 
+        /*
         Encounter encounter = new Encounter();
         encounter.GenerateRandom(Encounter.Type.DUNGEON);
         this.encounter = encounter;
+        */
 
     }
 
     public void Enter() {
+
+        Controller.instance.EnterRoom();
+        Controller.instance.imagePane.setVisible(false);
 
         ////////////////// Monsters //////////////////
 
@@ -78,8 +83,9 @@ public class Room {
                 return;
             }
 
-            Choice choice = encounter.DungeonEncounter();
-            dungeon.PromptToMove(choice);
+            //Choice choice = encounter.DungeonEncounter();
+            //dungeon.PromptToMove(choice);
+            dungeon.PromptToMove(null);
         }
 
     }

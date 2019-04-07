@@ -296,7 +296,7 @@ public class Controller {
     public void SetSlotImage(Item item) {
         String name = item.name.replaceAll(" ", "_").toLowerCase() + ".png";
 
-        Sound.PlaySound("equip", false);
+        Sound.PlaySound("equip");
 
         if (item instanceof Weapon) {
 
@@ -392,7 +392,7 @@ public class Controller {
         } else if (item instanceof Shield) {
             name = item.name + "\nBlock Chance: " + ((Shield) item).blockChance;
         } else if (item instanceof Armor) {
-            name = item.name + "\nProtection: 0";
+            name = item.name + "\nProtection: " + ((Armor) item).protection;
         } else if (item instanceof Potion) {
             name = item.name + "\nHeals 5 HP";
         }
@@ -421,14 +421,14 @@ public class Controller {
 
     public void PlayerDeath() {
 
-        Sound.PlaySound("hero_portrait_crack", false);
+        Sound.PlaySound("hero_portrait_crack");
 
         PauseTransition pauseTransition = Pause(1);
         pauseTransition.setOnFinished(a -> {
-            Sound.PlaySound("hero_portrait_explode", false);
+            Sound.PlaySound("hero_portrait_explode");
 
             screenPane.getChildren().clear();
-            Sound.PlaySound("You Died", false);
+            Sound.PlaySound("You Died");
             screenPane.setBackground(GetBackground("death.png"));
             PauseTransition pauseTransition2 = Pause(5);
             pauseTransition2.setOnFinished(e -> {
@@ -452,7 +452,7 @@ public class Controller {
             choiceButton.setMinHeight(100);
             choiceButton.setOnAction(action -> {
                 PlayAnimation(choiceButton, 0, 10, 0.1f);
-                Sound.PlaySound("choice_click", false);
+                Sound.PlaySound("choice_click");
                 root.MakeSelection(choice);
             });
             choiceButton.setOnMouseEntered(action -> {
@@ -476,6 +476,10 @@ public class Controller {
         imagePane.setVisible(true);
         SetImage(image, path);
 
+    }
+
+    public void DisplayBackground(String path) {
+        screenPane.setBackground(GetBackground(path));
     }
 
     public void HideImage() {
@@ -622,7 +626,7 @@ public class Controller {
 
         DisableChoiceButtons(true);
 
-        Sound.PlaySound("monsters/" + CombatManager.monster.name + "/attack", false);
+        Sound.PlaySound("monsters/" + CombatManager.monster.name + "/attack");
         PauseTransition pauseTransition = Pause(0.5f);
         pauseTransition.setOnFinished(a -> {
 
@@ -648,8 +652,8 @@ public class Controller {
         }
     }
 
-    public void DisplayMessage(String text) {
-        Sound.PlaySound("critical_hit", false);
+    public void DisplayMessage(String text, String sound) {
+        Sound.PlaySound(sound);
 
         Label label = new Label(text);
         label.setTextFill(Color.rgb(250, 0, 0));
@@ -667,15 +671,7 @@ public class Controller {
     }
 
     public void ShieldBlock() {
-        Sound.PlaySound("block", false);
-
-    }
-
-    public void MonsterRegenAnimation() {
-
-    }
-
-    public void DeathrattleAnimation() {
+        DisplayMessage("Blocked", "block");
 
     }
 
@@ -696,7 +692,8 @@ public class Controller {
         try {
             FileInputStream inputStream = new FileInputStream("src/resources/sprites/" + filePath);
             Image image = new Image(inputStream);
-            BackgroundImage background = new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+            BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, true);
+            BackgroundImage background = new BackgroundImage(image, BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
             return new Background(background);
         } catch (FileNotFoundException e) {
             System.out.println("Background image is missing");

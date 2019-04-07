@@ -68,12 +68,13 @@ public class MenuController {
         RefreshLabels();
 
 
-
         backgroundHBox.setBackground(new Background(GetBackground("background.png")));
 
         classSelectionBox.setBackground(new Background(GetBackground("background2.png")));
 
         //playButton.setBackground(new Background(GetBackground("button.png")));
+
+        Sound.PlayMusic("Main_Menu_song");
     }
 
     private BackgroundImage GetBackground(String path) {
@@ -89,12 +90,12 @@ public class MenuController {
     }
 
     public void PlayButtonPressed() {
-        Sound.PlaySound("click", false);
+        Sound.PlaySound("click");
         ShowClassSelectionMenu(true);
     }
 
     public void PlayButtonPressed2(ActionEvent actionEvent) throws Exception {
-        Sound.PlaySound("click", false);
+        Sound.PlaySound("click");
 
         if (points != 0) {
             System.out.println("You have not used up all your points");
@@ -122,7 +123,7 @@ public class MenuController {
     }
 
     public void QuitButtonPressed() {
-        Sound.PlaySound("click", false);
+        Sound.PlaySound("click");
         System.exit(0);
     }
 

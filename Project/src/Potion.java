@@ -7,7 +7,7 @@ public class Potion extends Item {
     public void Use() {
         super.Use();
         Player.instance.GainHealth(5);
-        Sound.PlaySound("health_potion", false);
+        Sound.PlaySound("health_potion");
     }
 
 }

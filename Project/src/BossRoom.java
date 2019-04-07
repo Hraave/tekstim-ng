@@ -15,6 +15,8 @@ public class BossRoom extends Room {
     @Override
     public void Enter() {
 
+        Sound.PlayMusic("Main_Menu_song");
+
         Controller.instance.EnterRoom();
         Controller.instance.imagePane.setVisible(false);
 
@@ -24,6 +26,8 @@ public class BossRoom extends Room {
 
         if (hasBeenVisited) {
             Controller.instance.ExitRoom();
+            Dungeon.playerIsInDungeon = false;
+            Sound.PlayMusic("Wander_Around_song");
             Game.instance.NewEncounter();
         }
 

@@ -8,6 +8,8 @@ public class Game {
 
     public void Start() {
 
+        Sound.PlayMusic("Wander_Around_song");
+
         MonsterFactory.Setup();
         ItemFactory.Setup();
         NewEncounter();

@@ -3,3 +3,6 @@ Phantom_Militia 2 4
 Astral_Tiger 3 5
 Wyrmrest_Agent 1 4
 Ironfur_Grizzly 3 3
+Southsea_Deckhand 2 1
+Crystal_Lion 4 4
+Voidlord 3 5

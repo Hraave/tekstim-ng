@@ -64,12 +64,12 @@
                         </ImageView>
                         <ImageView fitHeight="80.0" fitWidth="66.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/sprites/UI/attack.png" />
+                              <Image url="@resources/sprites/attack.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="80.0" fitWidth="60.0" layoutX="184.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/sprites/UI/health.png" />
+                              <Image url="@resources/sprites/health.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="monsterDamage" alignment="CENTER" layoutX="17.0" layoutY="318.0" prefHeight="35.0" prefWidth="39.0" text="0" textAlignment="CENTER">
@@ -82,7 +82,7 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
-                        <Label fx:id="monsterName" layoutX="82.0" layoutY="378.0" text="monster_name" />
+                        <Label fx:id="monsterName" alignment="CENTER" layoutX="55.0" layoutY="344.0" prefHeight="44.0" prefWidth="135.0" text="monster name" textAlignment="CENTER" />
                      </children>
                   </Pane>
                   <Region fx:id="region2" prefHeight="200.0" prefWidth="200.0" />
@@ -107,7 +107,7 @@
                </children>
             </HBox>
             <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="65.0" visible="false" />
-            <HBox fx:id="bottomBox" alignment="CENTER" prefHeight="349.0" prefWidth="1280.0">
+            <HBox fx:id="bottomBox" alignment="CENTER" prefHeight="327.0" prefWidth="1280.0">
                <children>
                   <GridPane alignment="CENTER" maxHeight="150.0" minHeight="150.0">
                     <columnConstraints>
@@ -142,11 +142,16 @@
                   </GridPane>
                   <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="400.0">
                      <children>
-                        <Label fx:id="playerGoldLabel" text="gold" textAlignment="CENTER" />
+                        <Label fx:id="levelLabel" text="Level: 1" textAlignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font></Label>
                         <ProgressBar fx:id="levelProgressBar" prefWidth="200.0" progress="0.0" />
                         <Label text="0/10" textAlignment="CENTER" fx:id="xpLabel" />
-                        <Label fx:id="levelLabel" text="Level: 1" textAlignment="CENTER" />
-                        <Button mnemonicParsing="false" onAction="#ToggleInventory" text="Inventory" />
+                        <Separator orientation="VERTICAL" prefHeight="44.0" prefWidth="67.0" visible="false" />
+                        <Button mnemonicParsing="false" onAction="#ToggleInventory" prefHeight="43.0" prefWidth="100.0" text="Inventory" />
+                        <Label fx:id="playerGoldLabel" text="gold" textAlignment="CENTER" visible="false" />
+                        <Separator orientation="VERTICAL" prefHeight="57.0" prefWidth="51.0" visible="false" />
                         <Button mnemonicParsing="false" onAction="#QuitButtonPressed" text="Quit" />
                      </children>
                   </VBox>
@@ -159,12 +164,12 @@
                         </ImageView>
                         <ImageView fitHeight="80.0" fitWidth="91.0" layoutX="-21.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/sprites/UI/attack.png" />
+                              <Image url="@resources/sprites/attack.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="80.0" fitWidth="66.0" layoutX="151.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@resources/sprites/UI/health.png" />
+                              <Image url="@resources/sprites/health.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="playerHealthLabel" alignment="CENTER" layoutX="159.0" layoutY="203.0" prefHeight="35.0" prefWidth="39.0" text="0" textAlignment="CENTER">

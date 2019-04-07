@@ -59,7 +59,7 @@ public class Player extends Character {
             xp -= requiredXP;
             level++;
             requiredXP = level * 10;
-            Sound.PlaySound("levelup", false);
+            Sound.PlaySound("levelup");
         }
         Controller.instance.DisplayStats();
     }

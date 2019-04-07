@@ -30,12 +30,23 @@ public class Choice {
         Controller.instance.DisplayImage(path);
     }
 
+    public void SetBackground(String path) {
+        Controller.instance.DisplayBackground(path);
+    }
+
     public void Display() {
         Controller.instance.DisplayChoices(this);
     }
 
     public void MakeSelection(Choice choice) {
+
+        if (Dungeon.playerIsInDungeon) {
+            choice.action.run();
+            return;
+        }
+
         Controller.instance.HideImage();
+        Controller.instance.DisplayBackground("road.png");
         if (choice.action != null) {
             choice.action.run();
         } else {

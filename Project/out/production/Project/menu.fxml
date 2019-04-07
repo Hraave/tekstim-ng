@@ -20,7 +20,7 @@
          <children>
             <VBox fx:id="menuBox" alignment="CENTER" prefHeight="800.0" prefWidth="500.0">
                <children>
-                  <ImageView fitHeight="422.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="534.0" fitWidth="528.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/sprites/menu.png" />
                      </image>
@@ -28,6 +28,7 @@
                   <Button fx:id="playButton" mnemonicParsing="false" onAction="#PlayButtonPressed" prefHeight="40.0" prefWidth="206.0" text="Play" />
                   <Separator orientation="VERTICAL" prefHeight="29.0" prefWidth="28.0" visible="false" />
                   <Button fx:id="quitButton" mnemonicParsing="false" onAction="#QuitButtonPressed" prefHeight="40.0" prefWidth="206.0" text="Quit" />
+                  <Separator orientation="VERTICAL" prefHeight="132.0" prefWidth="58.0" visible="false" />
                </children>
             </VBox>
             <VBox fx:id="classSelectionBox" alignment="CENTER" prefHeight="800.0" prefWidth="500.0">

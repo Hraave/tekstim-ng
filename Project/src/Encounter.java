@@ -4,7 +4,7 @@ public class Encounter {
 
     public enum Type { PATH, DUNGEON }
 
-    private static final int pathEncounterAmount = 4;
+    private static final int pathEncounterAmount = 5;
     private static final int dungeonEncounterAmount = 1;
 
     private int encounterNumber;
@@ -35,6 +35,9 @@ public class Encounter {
                 break;
             case 4:
                 BearCave();
+                break;
+            case 5:
+                Bonfire();
                 break;
         }
 
@@ -73,11 +76,13 @@ public class Encounter {
         });
 
         //root.SetImage("dungeon/" + dungeon.type.toString().toLowerCase() + ".png");
+        //root.SetImage("dungeon/dungeon.png");
+        root.SetBackground("dungeon/dungeon.png");
         root.Display();
 
     }
 
-    private void FindingItem() {
+    public void FindingItem() {
 
         Weapon weapon = Stats.GenerateRandomWeapon();
         Shield shield = Stats.GenerateRandomShield();
@@ -127,41 +132,50 @@ public class Encounter {
         Choice leave = root.AddChoice("Leave");
 
         enter.SetAction(() -> {
-            System.out.println("A bear comes out to attack you!");
-            Monster monster = MonsterFactory.GetMonster("Ironfur Grizzly");
-            CombatManager.StartBattle(monster);
+            if (RNG.PercentageChance(50)) {
+                System.out.println("A bear comes out to attack you!");
+                Monster monster = MonsterFactory.GetMonster("Ironfur Grizzly");
+                CombatManager.StartBattle(monster);
+            } else {
+                FindingItem();
+            }
         });
 
+        root.SetBackground("cave.png");
+        root.Display();
+
+    }
+
+    private void Bonfire() {
+
+        Choice root = new Choice("You find a bonfire");
+        Choice health = root.AddChoice("Rest");
+        Choice proceed = health.AddChoice("Continue");
+        Choice leave = root.AddChoice("Leave");
+
+        Choice root2 = new Choice("Healed to max health");
+        root2.AddChoice("Continue");
+
+        health.SetAction(() -> {
+            Player.instance.health = Player.instance.maxHealth;
+            Controller.instance.DisplayMessage("Healed", "health_potion");
+
+            root2.Display();
+        });
+
+        root.SetImage("bonfire.png");
         root.Display();
 
     }
 
     ///////////////////////////////////////////////////// DUNGEON ENCOUNTERS /////////////////////////////////////////////////////
 
-    private void ChestOld() {
-
-        Choice root = new Choice("There is a chest in the middle of the room");
-        Choice open = root.AddChoice("Open");
-        Choice leave = root.AddChoice("Leave");
-
-        open.SetAction(() -> {
-            if (RNG.PercentageChance(50)) {
-
-                System.out.println("A monster comes out of it!");
-                Monster();
-
-            } else {
-                System.out.println("It's empty");
-            }
-        });
-
-        root.Display();
-
-    }
-
     private Choice Chest() {
 
         Choice openChest = new Choice("Open the chest");
+        Choice take = new Choice("Take item");
+
+        openChest.AddChoice(take);
 
         openChest.SetAction(() -> {
             System.out.println("It's empty");

@@ -10,7 +10,7 @@ public class Inventory {
 
     public void Add(Item item) {
         if (items.size() >= columns * rows) {
-            System.out.println("Inventory is full!");
+            Controller.instance.DisplayMessage("Inventory full!", "hitsound");
         } else {
             items.add(item);
             Controller.instance.ToggleInventory();
