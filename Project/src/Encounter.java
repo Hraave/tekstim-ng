@@ -157,8 +157,8 @@ public class Encounter {
         root2.AddChoice("Continue");
 
         health.SetAction(() -> {
-            Player.instance.health = Player.instance.maxHealth;
-            Controller.instance.DisplayMessage("Healed", "health_potion");
+            Player.instance.GainHealth(100);
+            Sound.PlaySound("health_potion");
 
             root2.Display();
         });

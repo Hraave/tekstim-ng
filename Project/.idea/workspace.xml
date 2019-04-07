@@ -1,122 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f0f6de-7d42-456c-8f69-7b8e071704af" name="Default Changelist" comment="">
+    <list default="true" id="10e3507f-131e-4480-a9f4-e7ec709c8dfa" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/monsters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/monsters.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/BossRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/BossRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Choice.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Choice.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/CombatManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/CombatManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Dungeon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Encounter$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Encounter$Type.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/Encounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Encounter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Inventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Potion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Potion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Sound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Sound.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Stats.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Stats.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/ItemFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/ItemFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/MonsterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/MonsterFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/Weapon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Weapon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/game.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/UI/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/UI/attack.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/UI/health.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/Thumbs.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/bossdoor_forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/bossdoor_forward.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/icecrown_citadel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/door_forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/door_forward.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/heroes/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/heroes/Thumbs.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/boots/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/boots/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/boots/iron_boots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/chestplates/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/chestplates/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/chestplates/iron_chestplate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/helmets/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/helmets/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/helmets/iron_helmet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/potion/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/potion/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/shields/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/shields/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/shields/shield.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/weapons/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/weapons/Thumbs.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/monsters/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/monsters/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/monsters/astral_tiger.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/monsters/astral_tiger.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BossRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BossRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Choice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Choice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CombatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CombatManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dungeon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Encounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Potion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Sound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Sound.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Stats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Weapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Weapon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sounds/Conquer_song.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sounds/Conquer_song.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sounds/Wander_Around_song.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sounds/Wander_Around_song.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sounds/monsters/Prince Malchezaar/VO_KAR_096_Male_Demon_Trigger_01.wav" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/sprites/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/UI/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/UI/attack.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/UI/health.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/sprites/dungeon/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/dungeon/Thumbs.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/sprites/dungeon/bossdoor_forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/dungeon/bossdoor_forward.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/dungeon/icecrown_citadel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sprites/dungeon/door_forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/dungeon/door_forward.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sprites/dungeon/uus/bossdoor_forward.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sprites/dungeon/uus/door_forward.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/sprites/dungeon/uus/room.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/sprites/heroes/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/heroes/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Armors/armor_of_hound.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Armors/bandos_armor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Armors/dragon_armor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Armors/dragon_armor2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Armors/steel_armor.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Boots/dragon_boots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Boots/fur_boots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Boots/golden_boots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Boots/steadfast_boots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Boots/steel_boots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Gloves/black_gloves.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Gloves/mithril_gloves.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Helms/black_helm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Helms/dharok_helm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Helms/dragon_helm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Helms/helm_of_guardian.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Helms/steel_helm.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Shields/dragon_shield.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Shields/shield_of_guardian.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Shields/steel_shield.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Weapons/axe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Weapons/dragon_sword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Weapons/elemental_staff.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Weapons/godsword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Weapons/lava_staff.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Weapons/mithril_sword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Weapons/nature_bow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Weapons/robin_bow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Weapons/slayer_sword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Images/Weapons/steel_sword.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/inventory/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/boots/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/inventory/boots/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/boots/iron_boots.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/chestplates/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/inventory/chestplates/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/chestplates/iron_chestplate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/helmets/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/inventory/helmets/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/helmets/iron_helmet.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/potion/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/inventory/potion/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/shields/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/inventory/shields/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/shields/shield.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/weapons/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/inventory/weapons/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/weapons/fiery_war_axe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/weapons/silver_sword.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/sprites/monsters/Thumbs.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/monsters/Thumbs.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/weapons/Thumbs.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/weapons/fiery_war_axe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/weapons/quel'delar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/weapons/silver_sword.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -126,7 +41,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Encounter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="287">
+              <caret line="160" column="45" selection-start-line="160" selection-start-column="45" selection-end-line="160" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="508" column="66" lean-forward="true" selection-start-line="508" selection-start-column="66" selection-end-line="508" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -134,29 +74,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Item.java" />
-        <option value="$PROJECT_DIR$/src/Armor.java" />
-        <option value="$PROJECT_DIR$/src/Shield.java" />
-        <option value="$PROJECT_DIR$/src/MonsterFactory.java" />
-        <option value="$PROJECT_DIR$/src/ItemFactory.java" />
-        <option value="$PROJECT_DIR$/src/Weapon.java" />
-        <option value="$PROJECT_DIR$/src/Stats.java" />
-        <option value="$PROJECT_DIR$/src/Choice.java" />
-        <option value="$PROJECT_DIR$/src/Dungeon.java" />
-        <option value="$PROJECT_DIR$/src/CombatManager.java" />
-        <option value="$PROJECT_DIR$/src/Player.java" />
-        <option value="$PROJECT_DIR$/src/Potion.java" />
-        <option value="$PROJECT_DIR$/src/Controller.java" />
-        <option value="$PROJECT_DIR$/src/Room.java" />
-        <option value="$PROJECT_DIR$/src/Inventory.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
-        <option value="$PROJECT_DIR$/src/MenuController.java" />
-        <option value="$PROJECT_DIR$/src/BossRoom.java" />
-        <option value="$PROJECT_DIR$/monsters.txt" />
-        <option value="$PROJECT_DIR$/src/menu.fxml" />
-        <option value="$PROJECT_DIR$/src/game.fxml" />
-        <option value="$PROJECT_DIR$/src/Sound.java" />
         <option value="$PROJECT_DIR$/src/Encounter.java" />
+        <option value="$PROJECT_DIR$/src/Controller.java" />
+        <option value="$PROJECT_DIR$/src/game.fxml" />
       </list>
     </option>
   </component>
@@ -173,6 +93,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,11 +110,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554630272976" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554652243012" />
     <property name="settings.editor.selected.configurable" value="configurable.group.other" />
   </component>
   <component name="RunDashboard">
@@ -227,72 +147,47 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f2f0f6de-7d42-456c-8f69-7b8e071704af" name="Default Changelist" comment="" />
-      <created>1553692366206</created>
+      <changelist id="10e3507f-131e-4480-a9f4-e7ec709c8dfa" name="Default Changelist" comment="" />
+      <created>1554650685392</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1553692366206</updated>
+      <updated>1554650685392</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2803838" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32936078" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32936078" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32936078" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Capture Analysis" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Item.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding>
-            <element signature="e#132#133#0" expanded="true" />
-            <element signature="e#186#187#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Key.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/monsters_scripted.txt" />
-    <entry file="file://$PROJECT_DIR$/src/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -300,154 +195,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MonsterFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/Encounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ItemFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Weapon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="47" lean-forward="true" selection-start-line="14" selection-start-column="47" selection-end-line="14" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shield.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Monster.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Armor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Stats.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/CombatManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="62" lean-forward="true" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="61" column="39" lean-forward="true" selection-start-line="61" selection-start-column="39" selection-end-line="61" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Potion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="9" column="41" lean-forward="true" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-461">
-          <caret line="298" column="33" lean-forward="true" selection-start-line="298" selection-start-column="33" selection-end-line="298" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Inventory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Room.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="87" column="39" lean-forward="true" selection-start-line="87" selection-start-column="39" selection-end-line="87" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="46" lean-forward="true" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Dungeon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="96" column="40" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Choice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MenuController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="76" column="42" lean-forward="true" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BossRoom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/monsters_bosses.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/monsters.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
+        <state relative-caret-position="287">
+          <caret line="160" column="45" selection-start-line="160" selection-start-column="45" selection-end-line="160" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -455,28 +206,10 @@
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/menu.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Sound.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="32" column="50" selection-start-line="32" selection-start-column="50" selection-end-line="32" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#152#153#0" expanded="true" />
-            <element signature="e#190#191#0" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Encounter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="159" column="63" lean-forward="true" selection-start-line="159" selection-start-column="63" selection-end-line="159" selection-end-column="63" />
+        <state relative-caret-position="459">
+          <caret line="508" column="66" lean-forward="true" selection-start-line="508" selection-start-column="66" selection-end-line="508" selection-end-column="66" />
         </state>
       </provider>
     </entry>

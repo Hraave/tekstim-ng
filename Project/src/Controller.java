@@ -495,8 +495,8 @@ public class Controller {
         imagePane.setVisible(true);
         SetImage(image, "dungeon/room.png");
 
-        SetImage(doorRight, "dungeon/door_forward.png");
-        SetImage(doorLeft, "dungeon/door_forward.png");
+        SetImage(doorRight, "dungeon/door_right.png");
+        SetImage(doorLeft, "dungeon/door_left.png");
         SetImage(doorForward, "dungeon/door_forward.png");
 
     }
@@ -506,12 +506,12 @@ public class Controller {
         if (direction == Dungeon.Direction.RIGHT) {
             doorRight.setVisible(true);
             if (isBossDoor) {
-                SetImage(doorRight, "dungeon/bossdoor_forward.png");
+                SetImage(doorRight, "dungeon/bossdoor_right.png");
             }
         } else if (direction == Dungeon.Direction.LEFT) {
             doorLeft.setVisible(true);
             if (isBossDoor) {
-                SetImage(doorLeft, "dungeon/bossdoor_forward.png");
+                SetImage(doorLeft, "dungeon/bossdoor_left.png");
             }
         } else if (direction == Dungeon.Direction.UP) {
             doorForward.setVisible(true);
