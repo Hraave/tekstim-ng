@@ -1,7 +1,7 @@
 # tekstim-ng
 Seiklusmäng, projekt on praegu pooleli.
 
-Väljalasu kuupäev on 11.aprill 2019.a
+Väljalasu kuupäev on 9.aprill 2019.a
 
 Projekti idee algataja on Harald Raave
 Mängu idee algataja on Kristjan Korela
