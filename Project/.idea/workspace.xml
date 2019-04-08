@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10e3507f-131e-4480-a9f4-e7ec709c8dfa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/monsters.txt" beforeDir="false" afterPath="$PROJECT_DIR$/monsters.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/CombatManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/CombatManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Dungeon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Encounter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Encounter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/ItemFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/ItemFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/MenuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/MenuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/MonsterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/MonsterFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Sound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Sound.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/Stats.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/Stats.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/room.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/dungeon/room.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/boss_key.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project/resources/sprites/inventory/boss_key.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Encounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Encounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/cave.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/cave.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/dungeon/room.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/dungeon/room.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/heroes/mage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/heroes/mage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/sprites/inventory/boss_key.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/sprites/inventory/boss_key.png" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Encounter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+            <state relative-caret-position="782">
+              <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -45,7 +25,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
+            <state relative-caret-position="8347">
               <caret line="512" column="29" selection-start-line="512" selection-start-column="29" selection-end-line="512" selection-end-column="29" />
             </state>
           </provider>
@@ -63,13 +43,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MonsterFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-680">
+            <state relative-caret-position="-442">
               <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Monster.java">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -81,7 +61,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MenuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2414">
+            <state relative-caret-position="34">
               <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
             </state>
           </provider>
@@ -89,8 +69,8 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/game.fxml">
-          <provider editor-type-id="text-editor" />
           <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+          <provider editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -119,7 +99,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,6 +116,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -189,8 +169,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -199,7 +180,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29469123" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29469123" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -226,28 +207,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game.fxml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MenuController.java">
+    <entry file="file://$PROJECT_DIR$/src/Encounter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2414">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        <state relative-caret-position="782">
+          <caret line="46" column="5" lean-forward="true" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Monster.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MonsterFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-680">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="8347">
+          <caret line="512" column="29" selection-start-line="512" selection-start-column="29" selection-end-line="512" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -258,17 +228,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/MenuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="512" column="29" selection-start-line="512" selection-start-column="29" selection-end-line="512" selection-end-column="29" />
+        <state relative-caret-position="34">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Encounter.java">
+    <entry file="file://$PROJECT_DIR$/src/game.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MonsterFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="43" column="22" selection-start-line="43" selection-start-column="22" selection-end-line="43" selection-end-column="22" />
+        <state relative-caret-position="-442">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Monster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" selection-start-column="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
