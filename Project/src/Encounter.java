@@ -4,7 +4,7 @@ public class Encounter {
 
     public enum Type { PATH, DUNGEON }
 
-    private static final int pathEncounterAmount = 5;
+    private static final int pathEncounterAmount = 6;
     private static final int dungeonEncounterAmount = 1;
 
     private int encounterNumber;

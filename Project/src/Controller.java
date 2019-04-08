@@ -428,7 +428,7 @@ public class Controller {
             Sound.PlaySound("hero_portrait_explode");
 
             screenPane.getChildren().clear();
-            Sound.PlaySound("You Died");
+            Sound.PlayMusic("You Died");
             screenPane.setBackground(GetBackground("death.png"));
             PauseTransition pauseTransition2 = Pause(5);
             pauseTransition2.setOnFinished(e -> {

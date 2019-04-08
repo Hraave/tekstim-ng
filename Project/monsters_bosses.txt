@@ -3,3 +3,5 @@ Prince_Malchezaar 5 6
 Kun_The_Forgotten_King 7 7
 Twin_Emperor_Vek'lor 4 6
 C'thun 6 6
+Lord_Jaraxxus 3 15
+Deathwing 12 12
